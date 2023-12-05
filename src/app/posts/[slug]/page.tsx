@@ -1,6 +1,7 @@
 // app/posts/[slug]/page.tsx
 import {format, parseISO} from "date-fns";
 import {allPosts} from "contentlayer/generated";
+import {useMDXComponent} from "next-contentlayer/hooks";
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({slug: post._raw.flattenedPath}));

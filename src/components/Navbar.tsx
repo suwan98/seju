@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <>
       <nav
-        className=" p-8 dark:bg-[#f5f5f7]  bg-[#161617] dark:text-black text-white text-opacity-80
+        className="py-8 px-12 dark:bg-[#f5f5f7]  bg-[#161617] dark:text-black text-white text-opacity-80
       ">
         <div className="flex items-center justify-between">
           <h1 className="font-extrabold text-3xl">

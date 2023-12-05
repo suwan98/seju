@@ -1,39 +1,24 @@
-import {Post, allPosts} from "contentlayer/generated";
-import Link from "next/link";
-import {parseISO, format, compareDesc} from "date-fns";
-
-function PostCard(post: Post) {
-  console.log(post.date);
-
-  return (
-    <div className="mb-8">
-      <h2 className="mb-1 text-xl">
-        <Link
-          href={post.url}
-          className="text-blue-700 hover:text-blue-900 dark:text-blue-400">
-          {post.title}
-        </Link>
-      </h2>
-      <time dateTime={post.date} className="mb-2 block text-xs text-gray-600">
-        {format(parseISO(post.date.trim()), "LLLL d, yyyy")}
-      </time>
-    </div>
-  );
-}
+import Image from "next/image";
 
 export default function Home() {
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  );
-
-  console.log(posts);
+  const imageSrcBase = {
+    src: "/assets/me.jpg",
+  };
 
   return (
-    <div className="mx-auto max-w-xl py-8 min-h-screen">
-      <h1 className="mb-8 text-center text-2xl font-black">전체 게시글 보기</h1>
-      {posts.map((post, idx) => (
-        <PostCard key={idx} {...post} />
-      ))}
-    </div>
+    <>
+      <div className="m-8 flex gap-4 w-full">
+        <Image src={imageSrcBase.src} alt="나" width="300" height="300" />
+        <div>
+          <h2 className="text-2xl font-semibold">
+            프론트엔드 기술블로그입니다
+          </h2>
+          <p className="pt-8">
+            트러블슈팅, 사이드프로젝트 과정, 학습한 내용에 대한 정리가 담겨있는
+            블로그입니다 😉
+          </p>
+        </div>
+      </div>
+    </>
   );
 }

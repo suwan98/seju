@@ -1,3 +1,6 @@
+import Github from "./Github";
+import Gmail from "./Gmail";
+
 function Footer() {
   return (
     <>
@@ -9,10 +12,10 @@ function Footer() {
               href="https://github.com/suwan98"
               target="_blank"
               rel="noopener noreferrer">
-              GitHub
+              <Github />
             </a>
             <a href="mailto:imissyou5466@gamil.com" rel="noopener noreferrer">
-              Contact
+              <Gmail />
             </a>
           </div>
         </div>
