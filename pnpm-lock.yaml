@@ -61,6 +61,9 @@ devDependencies:
   react-icons:
     specifier: ^4.12.0
     version: 4.12.0(react@18.0.0)
+  react-wrap-balancer:
+    specifier: ^1.1.0
+    version: 1.1.0(react@18.0.0)
   rehype-autolink-headings:
     specifier: ^7.1.0
     version: 7.1.0
@@ -4059,6 +4062,14 @@ packages:
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: true
+
+  /react-wrap-balancer@1.1.0(react@18.0.0):
+    resolution: {integrity: sha512-EhF3jOZm5Fjx+Cx41e423qOv2c2aOvXAtym2OHqrGeMUnwERIyNsRBgnfT3plB170JmuYvts8K2KSPEIerKr5A==}
+    peerDependencies:
+      react: '>=16.8.0 || ^17.0.0 || ^18'
+    dependencies:
+      react: 18.0.0
     dev: true
 
   /react@18.0.0:

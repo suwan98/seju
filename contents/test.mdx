@@ -1,6 +1,110 @@
 ---
-title: My First Post
+title: Recoil을 사용한 앱 테마변경
 date: 2021-12-24
 ---
 
-Ullamco et nostrud magna commodo nostrud ...
+## 🧐 개요
+
+전역상태관리 Recoil 라이브러리를 사용해 간단하게 앱의 테마를 변경하는 작업을 해보고, 해당 내용을 적었습니다.
+
+🌃 Recoil Atom 설정
+먼저 Recoil의 Atoms를 설정해 전역적으로 사용할 수 있도록 지정해야한다.
+
+전역상태관리 폴더를 따로 하나 빼서 해당 파일내에 전역상태들이 관심사가 분리되어 관리되도록 구성했다.
+atom 객체의 필수값은 key와 default인데, key는 atom을 내부적으로 구별할 수 있게하는 역할을 하고, deafult는 useState에서의 초깃값과 같은 역할을 한다.
+📝 atoms/themeAtom.ts
+
+import {atom} from "recoil";
+
+export const themeAtom = atom({
+  key: "theme",
+  default: "light",
+});
+🎆 RecoilRoot 컴포넌트 공급하기
+기본적으로 recoilAtoms는 앱 내부 최상단에서 RecoilRoot라는 컴포넌트를 공급해줘야 사용할 수 있다.
+
+나같은 경우엔 main.tsx의 React.StricMode 아래 RecoilRoot 컴포넌트를 공급했다.
+
+import {RecoilRoot} from "recoil";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+
+{" "}
+
+<React.StrictMode>
+  <RecoilRoot>
+    <App />
+  </RecoilRoot>
+</React.StrictMode>
+); 🖼️ 핸들러 함수및 상태 설정을 통한 테마 변경 과정
+
+앱내부에 토글버튼에 의해 내부 테마가 변경되길 원했기때문에 ThemeToggleButton이라는 컴포넌트를 만들고,
+해당 컴포넌트 내부에서 useRecoilState hook으로 만들어뒀던 atom을 가져와 사용했다
+useRecoilState는 useState와 모양이 아주 비슷해서 사용하기 쉬울듯하다.
+handleToggleTheme함수 내부에서 newTheme이라는 변수를 선언한 뒤, 삼항연산자로 버튼 클릭시 기본값으로 지정했던 theme이 light일땐 dark로, dark일땐 light로 토글되도록 구성했다
+그리고 최종적으로 setTheme 내부에 바뀐 newTheme을 넣음으로써 theme이 동적으로 업데이트 되도록 구성하였다.
+ThemeToggleButton 컴포넌트는 theme의 상태에 따라 react-icons라이브러리의 FiSun이나 FiMoon으로 조건부 렌더링된다
+이제 themeAtom은 handleToggleTheme함수에 의해 값이 동적으로 변하는 상태가 되었다
+
+```jsx
+<function ThemeToggleButton() {
+  const [theme, setTheme] = useRecoilState(themeAtom);
+  const handleToggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+
+/_ 새로고침시에도 테마 유지하기 _/
+useLayoutEffect(() => {
+const localStorageTheme = localStorage.getItem("theme");
+if (localStorageTheme) {
+setTheme(localStorageTheme);
+}
+}, [setTheme]);
+
+return (
+<button
+      type="button"
+      onClick={handleToggleTheme}
+      className="cursor-pointer pb-6 top-12 right-12 absolute">
+{theme === "light" ? <FiSun size={30} /> : <FiMoon size={30} />}
+</button>
+);
+}
+```
+
+📚 Theme 상태변화에 따른 색상 변경
+이제 theme은 동적으로 값이 변하는 상태가 되었다
+
+따라서 thmeToggleButton에 의해 theme이 토글됨과 동시에 앱 내부의 전체적인 색상도 바뀌어야한다.
+Container 컴포넌트에서 배경색상과 텍스트 색상을 theme에 의해 바뀌도록 삼항연산자로 구성하였다.
+import {ReactNode} from "react";
+import {useRecoilValue} from "recoil";
+import {themeAtom} from "../states/recoil/themeAtom";
+
+interface IContainer {
+children: ReactNode;
+}
+
+function Container({children}: IContainer) {
+const theme = useRecoilValue(themeAtom);
+
+const isRightTheme = theme === "light";
+const lightThemeCSS = "bg-white text-[##1c1e21]";
+const darkThemeCSS = "bg-[#18191a] text-[#f5f6f7]";
+const themeCSS = isRightThem ? lightThemeCSS : darkThemeCSS;
+
+return (
+
+<>
+  <div
+    className={`flex py-12  w-full h-fit items-center justify-center flex-col p-12 mobile:p-6 ${themeCSS}`}>
+    {children}
+  </div>
+</>
+); }
+
+export default Container;
+
+이제 ThemeToggleButton에 따라 버튼에 따라 버튼도 바뀌고 배경및색상도 바뀐다
