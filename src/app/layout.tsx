@@ -1,5 +1,4 @@
 import type {Metadata} from "next";
-import {Inter} from "next/font/google";
 import "@/styles/tailwind.css";
 import ThemeProviders from "../components/ThemeProviders";
 import Navbar from "../components/Navbar";
