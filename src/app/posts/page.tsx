@@ -16,7 +16,6 @@ function Posts() {
         {posts.map((post, idx) => (
           <PostCard key={idx} {...post} />
         ))}
-        <PostCategories />
       </div>
     </>
   );

@@ -3,6 +3,7 @@ import "@/styles/tailwind.css";
 import ThemeProviders from "../components/ThemeProviders";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import PostCategories from "@/components/PostCategories";
 
 export const metadata: Metadata = {
   title: "Seju Devlog",
@@ -13,12 +14,13 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="ko" suppressHydrationWarning={true}>
       <head />
-      <body className=" flex flex-col bg-[#f5f5f7] antialiased transition-colors delay-75 dark:bg-[#161617] dark:bg-opacity-80">
+      <body className="flex flex-col bg-[#f5f5f7] antialiased transition-colors delay-75 dark:bg-[#161617] dark:bg-opacity-80 relative">
         <ThemeProviders>
           <Navbar />
           <main className="mx-auto mt-14 w-full max-w-2xl px-4 min-h-[32rem]">
             {children}
           </main>
+          <PostCategories />
           <Footer />
         </ThemeProviders>
       </body>

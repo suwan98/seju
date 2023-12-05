@@ -1,15 +1,17 @@
 import {Post} from "contentlayer/generated";
 import Link from "next/link";
 import {parseISO, format} from "date-fns";
+import createSlug from "./../utils/createSlug";
 
 function PostCard(post: Post) {
-  const {category, date} = post;
+  const {date, title} = post;
+  const slug = createSlug(title);
 
   return (
     <div className="mb-8">
       <h2 className="mb-1 text-xl">
         <Link
-          href={`/posts/${category}`}
+          href={`/posts/${slug}`}
           className="text-blue-700 hover:text-blue-900 dark:text-blue-400">
           {post.title}
         </Link>
