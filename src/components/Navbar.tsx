@@ -18,7 +18,7 @@ function Navbar() {
           </h1>
           <ul className="flex items-center justify-center gap-4">
             {NAV_ITEMS.map(({name, href}) => (
-              <li key={name} className=" hover:text-opacity-100">
+              <li key={name} className="hover:text-opacity-100">
                 <Link href={href}>{name}</Link>
               </li>
             ))}
