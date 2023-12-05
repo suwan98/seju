@@ -1,19 +1,15 @@
 interface NavItem {
-  name: "home" | "about" | "post";
-  href: "/" | "/about" | "/post";
+  name: "나는?" | "게시글 보기";
+  href: "/about" | "/posts";
 }
 
 export const NAV_ITEMS: NavItem[] = [
   {
-    name: "home",
-    href: "/",
-  },
-  {
-    name: "about",
+    name: "나는?",
     href: "/about",
   },
   {
-    name: "post",
-    href: "/post",
+    name: "게시글 보기",
+    href: "/posts",
   },
 ];

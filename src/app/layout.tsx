@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="ko" className="ont-sans">
+    <html lang="ko" suppressHydrationWarning={true}>
       <head />
-      <body className="mx-2 flex flex-col bg-slate-50 antialiased transition-colors delay-75 dark:bg-slate-500 ">
+      <body className=" flex flex-col bg-[#f5f5f7] antialiased transition-colors delay-75 dark:bg-[#161617] dark:bg-opacity-80">
         <ThemeProviders>
           <Navbar />
           <main className="mx-auto mt-14 w-full max-w-2xl px-4">
@@ -25,3 +25,5 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     </html>
   );
 }
+
+// #161617, opacity 80.0%
