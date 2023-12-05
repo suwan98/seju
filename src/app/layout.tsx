@@ -13,7 +13,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="ko" className="ont-sans">
       <head />
-      <body className="mx-2 flex flex-col bg-slate-50 antialiased transition-colors delay-75 dark:bg-slate-800">
+      <body className="mx-2 flex flex-col bg-slate-50 antialiased transition-colors delay-75 dark:bg-slate-500 ">
         <ThemeProviders>
           <Navbar />
           <main className="mx-auto mt-14 w-full max-w-2xl px-4">
