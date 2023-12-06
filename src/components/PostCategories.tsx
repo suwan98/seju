@@ -7,13 +7,14 @@ function PostCategories() {
 
   return (
     <>
-      <section className="border w-fit p-8 pb-12 text-center absolute top-36 bottom-0 left-0">
-        <h2 className="text-3xl font-bold mb-8">카테고리</h2>
+      <section className="w-fit p-8 pb-12 text-center absolute top-[26rem] bottom-0 left-12 h-fit  text-primaryColor">
         <ul className="flex flex-col gap-4">
           {categories.map((category, index) => (
-            <li className="border p-4 rounded-xl" key={index}>
-              <Link href={`/posts/${category}`}>{category}</Link>
-            </li>
+            <Link href={`/posts/${category}`} key={index}>
+              <li className="p-4 rounded-xl block delay-75 ease-in-out cursor-pointer bg-secondaryColor text-primaryColor shadow">
+                {category}
+              </li>
+            </Link>
           ))}
         </ul>
       </section>

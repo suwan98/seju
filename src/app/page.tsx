@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="m-8 flex gap-4 w-full">
+      <div className="flex gap-4 w-full m-8 items-centerr h-fit">
         <Image src={imageSrcBase.src} alt="나" width="300" height="300" />
         <div>
           <h2 className="text-2xl font-semibold">
