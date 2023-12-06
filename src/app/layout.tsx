@@ -17,7 +17,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body className="flex flex-col bg-secondaryColor antialiased transition-colors delay-75 dark:bg-[#161617] dark:bg-opacity-80 relative min-h-screen">
         <ThemeProviders>
           <Navbar />
-          <main className="px-12 flex items-center justify-center my-auto">
+          <main className="mx-auto flex items-center justify-center my-auto">
             {children}
           </main>
           {/* <PostCategories /> */}
