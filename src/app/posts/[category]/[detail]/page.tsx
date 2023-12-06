@@ -10,8 +10,6 @@ interface PostDetailProps {
   };
 }
 
-
-
 function PostDetail({params}: PostDetailProps) {
   const posts = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
@@ -27,9 +25,14 @@ function PostDetail({params}: PostDetailProps) {
 
   return (
     <>
-      <div>
-        <h1>{detailPost?.title}</h1>
-        <span>{detailPost?.category}</span>
+      <div className="px-12 pt-12">
+        <div className="text-center pb-8">
+          <h1 className="text-3xl text-center font-bold">
+            {detailPost?.title}
+          </h1>
+          <span>{detailPost?.date}</span>
+        </div>
+        <hr className="pb-8" />
         <MDXComponent />
       </div>
     </>

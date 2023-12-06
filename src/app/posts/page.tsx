@@ -9,7 +9,7 @@ function Posts() {
 
   return (
     <>
-      <div className="mx-auto max-w-xl py-8 ">
+      <div className="mx-auto py-8">
         <h1 className="mb-8 text-center text-2xl font-black">
           전체 게시글 보기
         </h1>

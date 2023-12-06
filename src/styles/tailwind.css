@@ -38,3 +38,33 @@ body {
       0px 3px 5px -1px hsla(0, 0%, 0%, 0.2);
   }
 }
+
+@layer components {
+  main {
+    & h1 {
+      @apply px-2 my-8 text-4xl font-bold block;
+    }
+    & h2 {
+      @apply bg-cyan-500 bg-opacity-10 px-2 my-8 block text-3xl font-bold;
+    }
+    & h3 {
+      @apply bg-green-600 bg-opacity-5 px-2 my-8 block text-2xl font-bold;
+    }
+    & ul {
+      display: block;
+      list-style-type: disc;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 1.5rem;
+    }
+    & li {
+      display: list-item;
+    }
+    & code {
+      @apply m-4 py-6 overflow-hidden;
+    }
+    & p {
+      @apply my-2;
+    }
+  }
+}

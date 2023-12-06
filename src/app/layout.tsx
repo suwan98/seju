@@ -14,13 +14,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="ko" suppressHydrationWarning={true}>
       <head />
-      <body className="flex flex-col h-screen bg-secondaryColor antialiased transition-colors delay-75 dark:bg-[#161617] dark:bg-opacity-80 relative">
+      <body className="flex flex-col h-screen bg-secondaryColor antialiased transition-colors delay-75 dark:bg-[#161617] dark:bg-opacity-80 relative overflow-x-clip">
         <ThemeProviders>
           <Navbar />
-          <main className="mx-auto w-full max-w-2xl px-4 min-h-[46rem] mt-auto">
-            {children}
-          </main>
-          <PostCategories />
+          <main className="px-12">{children}</main>
+          {/* <PostCategories /> */}
           <Footer />
         </ThemeProviders>
       </body>
