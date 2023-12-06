@@ -14,10 +14,12 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="ko" suppressHydrationWarning={true}>
       <head />
-      <body className="flex flex-col h-screen bg-secondaryColor antialiased transition-colors delay-75 dark:bg-[#161617] dark:bg-opacity-80 relative overflow-x-clip">
+      <body className="flex flex-col bg-secondaryColor antialiased transition-colors delay-75 dark:bg-[#161617] dark:bg-opacity-80 relative min-h-screen">
         <ThemeProviders>
           <Navbar />
-          <main className="px-12">{children}</main>
+          <main className="px-12 flex items-center justify-center my-auto">
+            {children}
+          </main>
           {/* <PostCategories /> */}
           <Footer />
         </ThemeProviders>
@@ -25,7 +27,3 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     </html>
   );
 }
-
-// #161617, opacity 80.0%
-
-// #e3e3e4

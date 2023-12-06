@@ -19,7 +19,10 @@ function PostList({posts}: PostListProps) {
           passHref
           className="w-full">
           <div className="font-extrabold text-xl sm:text-2xl mt-2 transition text-black dark:text-white hover:text-green-500 dark:hover:text-green-500">
-            {post.title}
+            <span>{post.title}</span>
+            <span className="ml-8 font-extralight text-base">
+              {post.category}
+            </span>
           </div>
           <div className="font-medium text-xs transition text-gray-500 dark:text-gray-300">
             {post.date}

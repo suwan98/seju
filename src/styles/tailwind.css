@@ -42,29 +42,34 @@ body {
 @layer components {
   main {
     & h1 {
-      @apply px-2 my-8 text-4xl font-bold block;
+      @apply my-8 text-4xl font-bold block;
     }
     & h2 {
-      @apply bg-cyan-500 bg-opacity-10 px-2 my-8 block text-3xl font-bold;
+      @apply bg-cyan-500 bg-opacity-10 my-8 block text-3xl font-bold;
     }
     & h3 {
-      @apply bg-green-600 bg-opacity-5 px-2 my-8 block text-2xl font-bold;
+      @apply bg-green-600 bg-opacity-5 my-8 block text-2xl font-bold;
     }
     & ul {
-      display: block;
-      list-style-type: disc;
-      margin-inline-start: 0px;
-      margin-inline-end: 0px;
-      padding-inline-start: 1.5rem;
+      @apply block list-disc;
     }
     & li {
-      display: list-item;
+      @apply list-item ml-6;
+    }
+    & figure {
+      @apply py-6 overflow-hidden;
     }
     & code {
-      @apply m-4 py-6 overflow-hidden;
+      @apply text-sm bg-gray-200 text-red-500 p-1 m-2 rounded-sm;
+    }
+    & code[data-theme] {
+      @apply p-6 bg-inherit text-inherit;
     }
     & p {
-      @apply my-2;
+      @apply mb-2 mt-6;
+    }
+    & aside {
+      @apply bg-yellow-500 bg-opacity-10 p-4 my-2;
     }
   }
 }
