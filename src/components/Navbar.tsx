@@ -1,4 +1,3 @@
-"use client";
 import {NAV_ITEMS} from "@/constants/constants";
 import Link from "next/link";
 import DarkModeButton from "./DarkModeButton";

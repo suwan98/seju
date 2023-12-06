@@ -1,5 +1,3 @@
-import PostCard from "@/components/PostList";
-import PostCategories from "@/components/PostCategories";
 import {allPosts} from "contentlayer/generated";
 import {compareDesc} from "date-fns";
 import PostList from "@/components/PostList";
