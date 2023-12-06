@@ -24,7 +24,7 @@ body {
   }
 }
 
-.shadow {
+.custom-shadow {
   box-shadow:
     /* offset-x | offset-y | blur-radius | spread-radius | color */ 0px
       3px 4px 0px hsla(0, 0%, 0%, 0.14),
