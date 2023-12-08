@@ -1,10 +1,10 @@
-import {posts} from "contentlayer/generated";
+import {Posts} from "contentlayer/generated";
 import Link from "next/link";
 
 import getLastSegment from "../utils/getLastSegment";
 
 interface PostListProps {
-  posts: posts[];
+  posts: Posts[];
 }
 
 function PostList({posts}: PostListProps) {
@@ -18,7 +18,7 @@ function PostList({posts}: PostListProps) {
           )}`}
           passHref
           className="w-full">
-          <div className="font-extrabold text-xl sm:text-2xl mt-2 transition text-black dark:text-white hover:text-green-500 dark:hover:text-green-500">
+          <div className="font-extrabold text-xl sm:text-2xl mt-2 transition text-black dark:text-white hover:text-blue-400 dark:hover:text-blue-400">
             <span>{post.title}</span>
             <span className="ml-8 font-extralight text-base">
               {post.category}

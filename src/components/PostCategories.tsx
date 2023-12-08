@@ -7,11 +7,11 @@ function PostCategories() {
 
   return (
     <>
-      <section className="p-8 pb-12 text-center absolute top-[26rem] bottom-0 left-12 h-fit  text-primaryColor">
-        <ul className="flex flex-col gap-4">
+      <section className="w-fit text-center text-primaryColor pt-32">
+        <ul className="flex">
           {categories.map((category, index) => (
             <Link href={`/posts/${category}`} key={index}>
-              <li className="p-4 rounded-xl block delay-75 ease-in-out cursor-pointer bg-secondaryColor text-primaryColor custom-shadow">
+              <li className="p-4 rounded-xl block delay-75 ease-in-out cursor-pointer bg-blue-400 text-secondaryColor custom-shadow hover:bg-blue-500">
                 {category}
               </li>
             </Link>
