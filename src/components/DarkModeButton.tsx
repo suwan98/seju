@@ -1,8 +1,9 @@
 "use client";
 
-import {HiOutlineSun, HiOutlineMoon} from "react-icons/hi2";
 import {useTheme} from "next-themes";
 import {useEffect, useState} from "react";
+import {MdSunny} from "react-icons/md";
+import {IoMdMoon} from "react-icons/io";
 
 function DarkModeButton() {
   const {systemTheme, theme, setTheme} = useTheme();
@@ -17,18 +18,18 @@ function DarkModeButton() {
       {mounted && currentTheme === "dark" ? (
         <button
           type="button"
-          className="rounded-md bg-slate-100 p-2 text-black delay-75 ease-in-out hover:bg-slate-200"
+          className="p-2 delay-75 ease-in-out text-yellow-400  text-center"
           onClick={() => setTheme("light")}>
-          <HiOutlineSun size={20} />
+          <MdSunny size={24} />
         </button>
       ) : (
         <button
           type="button"
-          className="rounded-md bg-slate-100 p-2 text-black delay-75 ease-in-out hover:bg-slate-200"
+          className="p-2 delay-75 ease-in-out text-yellow-400 text-center"
           title="Toggle dark mode"
           aria-label="Toggle theme"
           onClick={() => setTheme("dark")}>
-          <HiOutlineMoon size={20} />
+          <IoMdMoon size={24} />
         </button>
       )}
     </>

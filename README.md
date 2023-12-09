@@ -32,8 +32,10 @@
 - [x] Static Site Generation
 - [x] Contentlayer 라이브러리를 통한 .mdx 파일 렌더링
 - [x] 게시글 내 코드 블록 하이라이팅
+- [ ] MDX 코드 내부 스타일링 초기화(@tailwindcss/typography)
 - [ ] 게시글 썸네일
 - [ ] SEO 최적화
+- [ ] 게시글 내부 목차 기능 개발
 - [ ] 블로그 View Count
 - [ ] 반응형 레이아웃
 - [ ] 페이지네이션

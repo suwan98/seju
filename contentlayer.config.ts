@@ -12,6 +12,12 @@ export const Post = defineDocumentType(() => ({
     date: {type: "string", required: true},
     category: {type: "string", required: true},
   },
+  computedFields: {
+    thumbnail: {
+      type: "string",
+      resolve: (doc) => {},
+    },
+  },
 }));
 
 const rehypeoptions = {

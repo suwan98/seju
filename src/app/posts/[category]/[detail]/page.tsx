@@ -19,8 +19,6 @@ function PostDetail({params}: PostDetailProps) {
     (post) => getLastSegment(post._raw.flattenedPath) === params.detail
   );
 
-  console.log(detailPost?.body.code);
-
   const MDXComponent = useMDXComponent(detailPost?.body.code || "");
 
   return (
