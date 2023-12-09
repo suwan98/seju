@@ -3,11 +3,13 @@ import "@/styles/tailwind.css";
 import ThemeProviders from "../components/ThemeProviders";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import PostCategories from "@/components/PostCategories";
 
 export const metadata: Metadata = {
   title: "Seju Devlog",
   description: "좌충우돌 새싹 개발자 성장기🌱",
+  icons: {
+    icon: "/assets/icon/pageIcon.png",
+  },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
@@ -20,7 +22,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           <main className="mx-auto flex items-center justify-center my-auto">
             {children}
           </main>
-          {/* <PostCategories /> */}
           <Footer />
         </ThemeProviders>
       </body>
