@@ -10,8 +10,10 @@
   font-display: swap;
 }
 
-body {
-  font-family: "Pretendard";
+@font-face {
+  font-family: Pixelmania;
+  src: url("/fonts/Pixelmania.ttf");
+  font-display: swap;
 }
 
 .bottom-shadow {
@@ -36,6 +38,21 @@ body {
         6px 10px 0px hsla(0, 0%, 0%, 0.14),
       0px 1px 18px 0px hsla(0, 0%, 0%, 0.12),
       0px 3px 5px -1px hsla(0, 0%, 0%, 0.2);
+  }
+}
+
+@layer base {
+  html {
+    font-family: "Pretendard";
+    font-size: 1rem;
+    letter-spacing: 0.0406rem;
+    @screen tablet {
+      font-size: 0.875rem;
+    }
+
+    @screen mobile {
+      font-size: 0.75rem;
+    }
   }
 }
 

@@ -19,6 +19,14 @@ const config: Config = {
         secondaryColor: "#f5f5f7",
         optionGreen: "#12b886",
       },
+      screens: {
+        mobile: {max: "727px"},
+        tablet: {min: "728px", max: "1280px"},
+        desktop: {min: "1281px"},
+      },
+      fontFamily: {
+        pixel: ["Pixelmania"],
+      },
     },
   },
   plugins: [],

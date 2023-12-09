@@ -1,3 +1,4 @@
+import TOC from "@/components/TOC";
 import getLastSegment from "@/utils/getLastSegment";
 import {allPosts} from "contentlayer/generated";
 import {compareDesc} from "date-fns";
@@ -23,15 +24,18 @@ function PostDetail({params}: PostDetailProps) {
 
   return (
     <>
-      <div className="px-12 pt-12">
+      <div className="max-w-full mx-auto my-auto pt-12 detail-contents">
         <div className="text-center pb-8">
           <h1 className="text-3xl text-center font-bold">
             {detailPost?.title}
           </h1>
           <span>{detailPost?.date}</span>
+          <TOC />
         </div>
         <hr className="pb-8" />
-        <MDXComponent />
+        <div className="js-toc-content">
+          <MDXComponent />
+        </div>
       </div>
     </>
   );

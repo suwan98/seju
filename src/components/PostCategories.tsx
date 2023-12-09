@@ -12,7 +12,7 @@ function PostCategories() {
           {categories.map((category, index) => (
             <Link href={`/posts/${category}`} key={index}>
               <li className="p-4 rounded-xl block delay-75 ease-in-out cursor-pointer bg-blue-400 text-secondaryColor custom-shadow hover:bg-blue-500">
-                {category}
+                #{category}
               </li>
             </Link>
           ))}
