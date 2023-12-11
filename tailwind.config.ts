@@ -25,7 +25,7 @@ const config: Config = {
         desktop: {min: "1281px"},
       },
       fontFamily: {
-        pixel: ["Pixelmania"],
+        pixel: ["Jalnan"],
       },
     },
   },

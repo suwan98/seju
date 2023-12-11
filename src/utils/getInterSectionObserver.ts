@@ -3,7 +3,7 @@ import {debounce} from "lodash";
 
 function getInterSectionObserver(setState: Dispatch<SetStateAction<string>>) {
   const observer = new IntersectionObserver(
-    debounce((entries) => {
+    debounce((entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setState(entry.target.id);

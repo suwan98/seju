@@ -32,7 +32,7 @@ function TOC() {
                   smooth={true}
                   duration={500}
                   className={`${
-                    heading.id === currentId ? "text-red-500 font-bold" : ""
+                    heading.id === currentId ? "text-blue-400 font-bold" : null
                   }`}>
                   {heading.textContent}
                 </Link>
