@@ -20,13 +20,13 @@ function TOC() {
 
   return (
     <>
-      <div className="fixed top-0 right-0 mt-[20rem] pr-[8rem] tablet:hidden mobile:hidden">
+      <div className="fixed top-0 right-0 mt-[20rem] pr-[10rem] tablet:hidden mobile:hidden ">
         <ul className="flex flex-col items-end gap-2">
           {headingElements.map((heading) => {
             return (
               <li
                 key={heading.id}
-                className="list-none cursor-pointer text-xl text-opacity-60 text-primaryColor hover:underline hover:text-opacity-1">
+                className="list-none cursor-pointer text-lg text-opacity-60 text-primaryColor hover:underline hover:text-opacity-1 dark:text-secondaryColor">
                 <Link
                   to={heading.id}
                   smooth={true}

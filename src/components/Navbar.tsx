@@ -5,7 +5,7 @@ import DarkModeButton from "./DarkModeButton";
 function Navbar() {
   return (
     <>
-      <nav className="bg-blue-400 text-secondaryColor py-8 px-12 bottom-shadow dark:bg-secondaryColor dark:text-black">
+      <nav className="bg-blue-400 text-secondaryColor py-8 px-12 bottom-shadow dark:bg-secondaryColor dark:text-black mobile:p-0">
         <div className="flex items-center justify-between">
           <h1 className="font-extrabold text-3xl block p-4 font-jalnan">
             <Link href="/">

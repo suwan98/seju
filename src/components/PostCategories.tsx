@@ -11,7 +11,7 @@ function PostCategories() {
         <ul className="flex gap-4 ">
           {categories.map((category, index) => (
             <Link href={`/posts/${category}`} key={index}>
-              <li className="p-4 rounded-xl block delay-75 ease-in-out cursor-pointer bg-blue-400 text-secondaryColor custom-shadow hover:bg-blue-500">
+              <li className="p-4 rounded-xl block delay-75 ease-in-out cursor-pointer bg-blue-400 text-secondaryColor custom-shadow hover:bg-blue-500 mobile:p-2">
                 #{category}
               </li>
             </Link>
