@@ -1,5 +1,4 @@
 import {allPosts} from "contentlayer/generated";
-// @ts-ignore
 import {compareDesc} from "date-fns";
 import PostList from "@/components/PostList";
 import PostCategories from "@/components/PostCategories";
