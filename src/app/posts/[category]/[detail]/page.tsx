@@ -33,7 +33,7 @@ function PostDetail({params}: PostDetailProps) {
           <TOC />
         </div>
         <hr className="pb-8" />
-        <MDXComponent className="toc-content" />
+        <MDXComponent />
       </div>
     </>
   );
