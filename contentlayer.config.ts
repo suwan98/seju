@@ -11,12 +11,7 @@ export const Post = defineDocumentType(() => ({
     title: {type: "string", required: true},
     date: {type: "string", required: true},
     category: {type: "string", required: true},
-  },
-  computedFields: {
-    thumbnail: {
-      type: "string",
-      resolve: (doc) => {},
-    },
+    image: {type: "string"},
   },
 }));
 
@@ -28,6 +23,7 @@ const rehypeoptions = {
 const contentSource = makeSource({
   contentDirPath: "contents",
   documentTypes: [Post],
+  onExtraFieldData: "ignore",
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [[rehypePrettyCode, rehypeoptions], rehypeSlug],

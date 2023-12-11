@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Seju Devlog",
   description: "좌충우돌 새싹 개발자 성장기🌱",
   icons: {
-    icon: "/assets/icon/paceIcon.svg",
+    icon: "/assets/icon/favicon.ico",
   },
 };
 

@@ -24,7 +24,7 @@ function PostDetail({params}: PostDetailProps) {
 
   return (
     <>
-      <div className="w-full max-w-[50rem]  pt-12 detail-contents flex flex-col grow">
+      <div className="w-full max-w-[40rem]  pt-12 detail-contents flex flex-col grow">
         <div className="text-center pb-8">
           <h1 className="text-3xl text-center font-bold">
             {detailPost?.title}
@@ -33,7 +33,9 @@ function PostDetail({params}: PostDetailProps) {
           <TOC />
         </div>
         <hr className="pb-8" />
-        <MDXComponent />
+        <article className="prose">
+          <MDXComponent />
+        </article>
       </div>
     </>
   );

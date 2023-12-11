@@ -9,6 +9,8 @@ function Posts() {
     compareDesc(new Date(a.date), new Date(b.date))
   );
 
+  console.log(posts);
+
   return (
     <>
       <div className="mx-auto py-8">
