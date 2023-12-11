@@ -26,6 +26,7 @@ const contentSource = makeSource({
   onExtraFieldData: "ignore",
   mdx: {
     remarkPlugins: [remarkGfm],
+    // @ts-ignore
     rehypePlugins: [[rehypePrettyCode, rehypeoptions], rehypeSlug],
   },
 });

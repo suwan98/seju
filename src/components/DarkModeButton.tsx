@@ -1,9 +1,9 @@
 "use client";
 
-import {useTheme} from "next-themes";
 import {useEffect, useState} from "react";
 import {MdSunny} from "react-icons/md";
 import {IoMdMoon} from "react-icons/io";
+import {useTheme} from "next-themes";
 
 function DarkModeButton() {
   const {systemTheme, theme, setTheme} = useTheme();
