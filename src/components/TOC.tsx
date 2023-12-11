@@ -6,9 +6,10 @@ import tocbot from "tocbot";
 function TOC() {
   useEffect(() => {
     tocbot.init({
-      tocSelector: ".js-toc",
-      contentSelector: ".js-toc-content",
+      tocSelector: ".toc",
+      contentSelector: ".toc-content",
       headingSelector: "h2,h3",
+      activeLinkClass: "is-active-li",
     });
 
     return () => tocbot.destroy();
@@ -16,9 +17,8 @@ function TOC() {
 
   return (
     <>
-      <div>
-        <span>목차</span>
-        <div className="js-toc flex items-center justify-center"></div>
+      <div className="fixed top-0 right-0 mt-[20rem] pr-[10rem] flex flex-col">
+        <div className="toc"></div>
       </div>
     </>
   );
