@@ -20,7 +20,7 @@ function TOC() {
 
   return (
     <>
-      <div className="fixed top-0 right-0 mt-[20rem] pr-[10rem] tablet:hidden mobile:hidden ">
+      <div className="fixed top-0 left-[calc(100%-30rem)] mt-[20rem]   mobile:hidden ">
         <ul className="flex flex-col items-end gap-2">
           {headingElements.map((heading) => {
             return (
