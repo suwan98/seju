@@ -57,7 +57,7 @@ function PostDetail({params}: PostDetailProps) {
           <span>{detailPost?.date}</span>
           <TOC />
         </div>
-        <hr className="pb-8 dark:hidden" />
+        <hr className="pb-8" />
         <article className="prose prose-neutral dark:prose-invert">
           <MDXComponent />
         </article>

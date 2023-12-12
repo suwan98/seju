@@ -33,9 +33,10 @@
 - [x] Contentlayer 라이브러리를 통한 .mdx 파일 렌더링
 - [x] 게시글 내 코드 블록 하이라이팅
 - [x] MDX 코드 내부 스타일링 초기화(@tailwindcss/typography)
-- [] 게시글 썸네일
+- [ ] 게시글 썸네일
 - [x] Intersection Observer API를 통한 목차 기능 개발
-- [ ] SEO 최적화
+- [x] SEO 최적화
+- [x] GlassMorphism 구현
 - [ ] Giscus 추가하기
 - [ ] 블로그 View Count
 - [x] 반응형 레이아웃

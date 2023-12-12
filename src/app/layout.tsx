@@ -47,15 +47,3 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     </html>
   );
 }
-
-// {
-//     description: Minsang's Tech Blog
-//     image: https://minsang-blog.vercel.app/blogSc.png
-//     image:height: 370
-//     image:width: 968
-//     locale: ko_KR
-//     site_name: Next.js
-//     title: Minsang.dev
-//     type: website
-//     url: https://minsang-blog.vercel.app/
-//     }
