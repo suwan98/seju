@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="flex gap-4 items-center justify-center mobile:flex-col">
+      <section className="flex gap-4 items-center justify-center mobile:flex-col mobile:items-center mobile:justify-center">
         <a
           href="https://github.com/suwan98"
           target="_blank"
@@ -29,8 +29,8 @@ export default function Home() {
             <span className="text-blue-500 pl-2">고수완</span>입니다
           </h2>
 
-          <hr className="pb-8" />
-          <article className="mobile:text-lg mobile:font-medium flex items-center min-w-[45rem] text-lg">
+          <hr />
+          <article className="mobile:text-lg mobile:font-medium flex items-center min-w-[45rem] text-lg min-h-[6rem] mobile:min-w-[6rem] mobile:text-center">
             <PageIntroduce />
             <CursorBlinker />
           </article>

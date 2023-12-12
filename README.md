@@ -19,7 +19,7 @@
 
 ## 🔨 기술스택
 
-- `TypeSciprt`\*\*\*\*
+- `TypeSciprt`
 - `Nextjs`
 - `tailwindcss`
 - `framer-motion`
