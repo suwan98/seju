@@ -3,6 +3,7 @@ import getLastSegment from "@/utils/getLastSegment";
 import {allPosts} from "contentlayer/generated";
 import {compareDesc} from "date-fns";
 import {useMDXComponent} from "next-contentlayer/hooks";
+import METADATA from "./../../../../constants/METADATA";
 
 interface PostDetailProps {
   params: {
@@ -10,6 +11,24 @@ interface PostDetailProps {
     detail: string;
   };
 }
+
+export const generateMetadata = ({params}: PostDetailProps) => {
+  const {category, detail} = params;
+
+  return {
+    ...METADATA.meta,
+    title: `${detail} - ${category} | ${METADATA.meta.title}`,
+    description: `이 페이지는 ${category} 카테고리의 ${detail}에 대한 상세 정보를 제공합니다. ${METADATA.meta.description}`,
+    keywords: `${category}, ${detail}`,
+    author: METADATA.author,
+    openGraph: {
+      url: METADATA.meta.url,
+      title: `${detail} - ${category} | ${METADATA.meta.title}`,
+      description: `이 페이지는 ${category} 카테고리의 ${detail}에 대한 상세 정보를 제공합니다. ${METADATA.meta.description}`,
+      image: `${METADATA.meta.url}/assets/image/op_image.jpg`,
+    },
+  };
+};
 
 function PostDetail({params}: PostDetailProps) {
   const posts = allPosts.sort((a, b) =>

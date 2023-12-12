@@ -36,6 +36,7 @@
 - [] 게시글 썸네일
 - [x] Intersection Observer API를 통한 목차 기능 개발
 - [ ] SEO 최적화
+- [ ] Giscus 추가하기
 - [ ] 블로그 View Count
 - [x] 반응형 레이아웃
 - [ ] 페이지네이션

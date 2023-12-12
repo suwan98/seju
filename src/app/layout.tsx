@@ -3,12 +3,20 @@ import "@/styles/tailwind.css";
 import ThemeProviders from "../components/ThemeProviders";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import METADATA from "@/constants/METADATA";
 
 export const metadata: Metadata = {
   title: "Seju Devlog",
   description: "좌충우돌 새싹 개발자 성장기🌱",
   icons: {
     icon: "/assets/icon/favicon.ico",
+  },
+  keywords: "프론트엔드 기술 블로그",
+  openGraph: {
+    images: `${METADATA.meta.url}/assets/image/op_image.jpg`,
+    url: METADATA.meta.url,
+    title: `Seju Devlog`,
+    description: `좌충우돌 새싹 개발자 성장기🌱`,
   },
 };
 
