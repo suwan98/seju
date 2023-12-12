@@ -1,6 +1,6 @@
 import {Posts} from "contentlayer/generated";
 import Link from "next/link";
-import getLastSegment from "../utils/getLastSegment";
+import getLastSegment from "../../utils/getLastSegment";
 import Image from "next/image";
 
 interface PostListProps {

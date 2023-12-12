@@ -1,6 +1,6 @@
 "use client";
 
-import {NAV_ITEMS} from "@/constants/constants";
+import {NAV_ITEMS} from "@/constants/NAV_LINKS";
 import Link from "next/link";
 import DarkModeButton from "./DarkModeButton";
 import {useEffect, useState} from "react";
@@ -24,12 +24,12 @@ function Navbar() {
   }, []);
 
   const scrolledStyle =
-    "bg-opacity-20 bg-secondaryColor text-black dark:bg-primaryColor dark:bg-opacity-75 dark:bg-blend-multiply";
+    "bg-opacity-20 bg-secondaryColor text-black dark:bg-primaryColor dark:bg-opacity-20 dark:bg-blend-overlay";
 
   return (
     <>
       <nav
-        className={`bg-blue-400 text-secondaryColor py-8 px-12 bottom-shadow dark:bg-secondaryColor sticky top-0 dark:text-black mobile:p-0 glass  w-full${
+        className={`bg-blue-400 text-secondaryColor py-8 px-12 bottom-shadow dark:bg-secondaryColor sticky top-0 dark:text-black mobile:p-0 glass  w-full ${
           isScrolled ? scrolledStyle : null
         }`}>
         <div

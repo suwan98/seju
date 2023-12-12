@@ -1,7 +1,7 @@
 import {allPosts} from "contentlayer/generated";
 import {compareDesc} from "date-fns";
-import PostList from "@/components/PostList";
-import PostCategories from "@/components/PostCategories";
+import PostList from "@/components/Post/PostList";
+import PostCategories from "@/components/Post/PostCategories";
 
 function Posts() {
   const posts = allPosts.sort((a, b) =>

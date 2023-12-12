@@ -1,9 +1,10 @@
-import TOC from "@/components/TOC";
+import TOC from "@/components/Post/TOC";
 import getLastSegment from "@/utils/getLastSegment";
 import {allPosts} from "contentlayer/generated";
 import {compareDesc} from "date-fns";
 import {useMDXComponent} from "next-contentlayer/hooks";
 import METADATA from "./../../../../constants/METADATA";
+import Giscus from "@/components/Post/Giscus";
 
 interface PostDetailProps {
   params: {
@@ -61,6 +62,7 @@ function PostDetail({params}: PostDetailProps) {
         <article className="prose prose-neutral dark:prose-invert">
           <MDXComponent />
         </article>
+        <Giscus />
       </div>
     </>
   );

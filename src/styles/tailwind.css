@@ -61,6 +61,12 @@
   }
 }
 
+/* giscus 스타일 정의 */
+
+.gsc-reactions {
+  @apply text-primaryColor;
+}
+
 @layer base {
   html {
     font-family: "Pretendard";

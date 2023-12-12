@@ -33,7 +33,7 @@ export default function Home() {
           <article className="mobile:text-lg mobile:font-medium flex items-center min-w-[45rem] text-lg">
             <PageIntroduce />
             <CursorBlinker />
-        </article>
+          </article>
         </div>
       </section>
     </>

@@ -1,4 +1,4 @@
-import PostList from "@/components/PostList";
+import PostList from "@/components/Post/PostList";
 import {allPosts} from "contentlayer/generated";
 import {compareDesc} from "date-fns";
 
