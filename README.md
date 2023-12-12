@@ -38,7 +38,7 @@
 - [x] SEO 최적화
 - [x] GlassMorphism 구현
 - [x] 타이핑 애니메이션
-- [ ] Giscus 추가하기
+- [x] Giscus 추가하기
 - [ ] 블로그 View Count
 - [ ] Google Analytics 연동
 - [x] 반응형 레이아웃

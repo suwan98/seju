@@ -7,14 +7,13 @@ import {useEffect, useRef} from "react";
 function Giscus() {
   const giscusRef = useRef<HTMLDivElement>(null);
   const {resolvedTheme} = useTheme();
+  const giscusTheme =
+    resolvedTheme === "dark" ? "transparent_dark" : "light_tritanopia";
 
   useEffect(() => {
     if (!giscusRef.current || giscusRef.current.hasChildNodes()) return;
     const script = document.createElement("script");
     script.src = giscusConfig.src;
-
-    const giscusTheme =
-      resolvedTheme === "dark" ? "transparent_dark" : "light_tritanopia";
 
     const attributes = {...giscusConfig.attributes, theme: giscusTheme};
 
@@ -24,7 +23,7 @@ function Giscus() {
     script.async = giscusConfig.async;
 
     giscusRef.current.appendChild(script);
-  }, [resolvedTheme]);
+  }, [giscusTheme]);
 
   return (
     <footer id="giscus-comment" className="pt-10">
