@@ -29,7 +29,7 @@ function Navbar() {
   return (
     <>
       <nav
-        className={`bg-blue-400 text-secondaryColor py-8 px-12 bottom-shadow dark:bg-secondaryColor sticky top-0 dark:text-black mobile:p-0 glass  w-full ${
+        className={`bg-blue-400 text-secondaryColor py-8 px-12 bottom-shadow dark:bg-secondaryColor sticky top-0 dark:text-black mobile:p-0 min-w-full ${
           isScrolled ? scrolledStyle : null
         }`}>
         <div

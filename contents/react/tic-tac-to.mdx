@@ -1,0 +1,993 @@
+---
+title: 틱택토 게임 만들기 (with TypeScript)
+date: 2023-12-12
+category: React
+image: /assets/post/my-blog-services/thumbnail.png
+---
+
+# 틱택토 게임 만들기 (with TypeScript)
+
+## Game 컴포넌트 구성
+
+**App.tsx**
+
+- `grid place-content-center`
+  - `flex items-center justify-content-center` 와 동일 아이템을 상하좌우 중앙으로 배치
+
+```tsx
+import Game from "./components/Game";
+
+function App() {
+  return (
+    <>
+      <div className="h-screen **grid place-content-center**">
+        <h1 className="sr-only">틱택토 게임</h1>
+        <Game />
+      </div>
+    </>
+  );
+}
+```
+
+**Game 컴포넌트 초기구성**
+
+```tsx
+function Game() {
+  return (
+    <>
+      <section className="grid grid-rows-[24px_1fr] grid-cols-2 gap-2">
+        Game
+      </section>
+    </>
+  );
+}
+
+export default Game;
+```
+
+### Status 컴포넌트 구성
+
+**Status 컴포넌트는 Game 내부 컴포넌트로 구성되어야함**
+
+```tsx
+**📝 Game.tsx**
+
+import Status from "./Status";
+
+function Game() {
+  return (
+    <>
+      <section className="grid grid-rows-[24px_1fr] grid-cols-2 gap-2">
+        **<Status />**
+      </section>
+    </>
+  );
+}
+
+export default Game;
+```
+
+**Status.tsx**
+
+```tsx
+function Status() {
+  return (
+    <>
+      <h2 className="col-span-2">다음 플레이어 : 🥳</h2>
+    </>
+  );
+}
+
+export default Status;
+```
+
+### Board 컴포넌트 구성
+
+**Board 컴포넌트 또한 Game 컴포넌트 내부에서 구성되어야함**
+
+```tsx
+**📝 Game.tsx**
+
+function Game() {
+  return (
+    <>
+      <section className="grid grid-rows-[24px_1fr] grid-cols-2 gap-2">
+        <Status />
+        **<Board />**
+      </section>
+    </>
+  );
+}
+```
+
+**Board.tsx**
+
+```tsx
+function Board() {
+  return (
+    <>
+      <div className="grid grid-rows-3 grid-cols-3 border-2 border-slate-700">
+        Board
+      </div>
+    </>
+  );
+}
+
+export default Board;
+```
+
+### Square 컴포넌트 구성
+
+**Squaer 컴포넌트는 Board 내부에서 구성되어야 한다**
+
+```tsx
+📝 Board.tsx
+
+import Square from "./Square";
+
+function Board() {
+  return (
+    <>
+      <div className="grid grid-rows-3 grid-cols-3 border-2 border-slate-700">
+        **<Square />**
+      </div>
+    </>
+  );
+}
+
+export default Board;
+```
+
+**Squaer.tsx**
+
+```tsx
+function Square() {
+  return (
+    <>
+      <button
+        type="button"
+        className="w-16 h-16 border-l border-t border-solid border-slate-700">
+        Square
+      </button>
+    </>
+  );
+}
+
+export default Square;
+```
+
+![렌더링 된 Squaer 컴포넌트](https://prod-files-secure.s3.us-west-2.amazonaws.com/272b012a-e87d-473c-b817-b18213680590/f0e5b54c-73c7-419d-bdaf-fb1b8f51273a/Untitled.png)
+
+렌더링 된 Squaer 컴포넌트
+
+### History 컴포넌트 구성
+
+**History 컴포넌트는 Game 내에서 구성되어야 함**
+
+```tsx
+function Game() {
+  return (
+    <>
+      <section className="grid grid-rows-[24px_1fr] grid-cols-2 gap-2">
+        <Status />
+        <Board />
+        **
+        <History />
+        **
+      </section>
+    </>
+  );
+}
+```
+
+**History.tsx**
+
+- 사용자는 해당 컴포넌트로 인해 특정 시점으로 이동할 수 있도록 구성할 예정
+
+```tsx
+function History() {
+  return (
+    <>
+      <div>
+        <h2 className="sr-only">틱택토 시간여행 🚀</h2>
+        <ol className="space-y-1">
+          <li>
+            <button
+              type="button"
+              className="grid place-content-center py-1 px-4 rounded-md bg-slate-800 text-slate-50 text-xs">
+              게임 시작
+            </button>
+          </li>
+          <li>
+            <button
+              type="button"
+              className="grid place-content-center py-1 px-4 rounded-md bg-slate-800 text-slate-50 text-xs">
+              게임 #1 이동
+            </button>
+          </li>
+        </ol>
+      </div>
+    </>
+  );
+}
+
+export default History;
+```
+
+## Square 컴포넌트 로직 구성
+
+### Square 리스트 렌더링
+
+**Square 컴포넌트에 children prop을 받도록**
+
+```tsx
+function Square({**children**}) {
+  return (
+    <>
+      <button
+        type="button"
+        className="w-16 h-16 border-l border-t border-solid border-slate-700">
+        {children}
+      </button>
+    </>
+  );
+}
+
+export default Square;
+```
+
+**children의 타입은?**
+
+- `React.ReactNode`
+
+```tsx
+**interface ISquareProp {
+  children: React.ReactNode;
+}**
+
+function Square({children}**: ISquareProp**) {
+  return (
+    <>
+      <button
+        type="button"
+        className="w-16 h-16 border-l border-t border-solid border-slate-700">
+        {children}
+      </button>
+    </>
+  );
+}
+```
+
+<aside>
+💡 **Array(9).fill(null)**
+
+</aside>
+
+**Board 컴포넌트에서 INITAL_SQUARES라는 상수를 지정해 임의의 null이 담긴 배열을 설정**
+
+- 해당 상수를 기반으로 컴포넌트 리스트 렌더링
+
+```tsx
+function Board() {
+  const INITAL_SQUARES = Array(9).fill(null);
+
+  return (
+    <>
+      <div className="grid grid-rows-3 grid-cols-3 border-t-2 border-2 border-r-[3px] border-l-2 border-b-[3px] border-slate-700">
+        {INITAL_SQUARES.map((square, index) => {
+          return <Square key={index}>{square}</Square>;
+        })}
+      </div>
+    </>
+  );
+}
+```
+
+![*Array(9).fill(null)*](https://prod-files-secure.s3.us-west-2.amazonaws.com/272b012a-e87d-473c-b817-b18213680590/384a906a-e813-4e07-8d66-35fdb9b931bf/Untitled.png)
+
+_Array(9).fill(null)_
+
+![*현재 까지 구성된 UI*](https://prod-files-secure.s3.us-west-2.amazonaws.com/272b012a-e87d-473c-b817-b18213680590/354e0293-a7d6-4517-8380-9b930305f285/Untitled.png)
+
+_현재 까지 구성된 UI_
+
+### Square 이벤트 연결
+
+**스퀘어 버튼을 사용자가 입력시 플레이어가 위치 해야함**
+
+<aside>
+💡 **handlePlay 함수**
+
+</aside>
+
+- 해당 함수를 `Square` 컴포넌트에 `props`로 전달해야 함
+- 클로저를 사용해서 `index`를 전달
+
+```tsx
+const handlePlay = (index: number) => () => {
+    console.log(index);
+  };
+
+return (
+    <>
+      <div className="grid grid-rows-3 grid-cols-3 border-t-2 border-2 border-r-[3px] border-l-2 border-b-[3px] border-slate-700">
+        {INITAL_SQUARES.map((square, index) => {
+          return (
+            <Square key={index} **onPlay={handlePlay(index)}**>
+              {square}
+            </Square>
+          );
+        })}
+      </div>
+    </>
+  );
+```
+
+**handlePlay를 Squaer에 props로 전달할때 ISquareProp 함수 타입정의는 어떻게 해야할까?**
+
+```tsx
+function Board() {
+  const INITAL_SQUARES = Array(9).fill(null);
+
+  /* Square 컴포넌트에 인덱스값을 전달하는 함수 */
+  const handlePlay = (index: **number**) => () => {
+    console.log(index);
+  };
+
+  return (
+    <>
+      <div className="grid grid-rows-3 grid-cols-3 border-t-2 border-2 border-r-[3px] border-l-2 border-b-[3px] border-slate-700">
+        {INITAL_SQUARES.map((square, index) => {
+          return (
+            <Square key={index} **onPlay={handlePlay(index)**}>
+              {square}
+            </Square>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
+interface ISquareProp {
+  children: React.ReactNode;
+  **onPlay: (index: number) => void;**
+}
+```
+
+### 게임 인덱스와 넥스트 플레이어
+
+**gameIndex, nextPlayer 파생상태 설정**
+
+```tsx
+function Board() {
+  const INITAL_SQUARES = Array(9).fill(null);
+  const [squares] = useState(INITAL_SQUARES);
+
+  /* Square 컴포넌트에 인덱스값을 전달하는 함수 */
+  const handlePlay = (index: number) => () => {
+    console.log(index);
+  };
+
+  **const PLAYER1 = "🧡";
+  const PLAYER2 = "💚";
+  const [gameIndex, setGameIndex] = useState(0);
+  const nextPlayer = gameIndex % 2 === 0 ? PLAYER1 : PLAYER2;
+  console.log(nextPlayer);**
+
+  return (
+    <>
+      <div className="grid grid-rows-3 grid-cols-3 border-t-2 border-2 border-r-[3px] border-l-2 border-b-[3px] border-slate-700">
+        {squares.map((square, index) => {
+          return (
+            <Square key={index} onPlay={handlePlay(index)}>
+              {square}
+            </Square>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+```
+
+**handlePlay 함수 로직 설명**
+
+- `nextPlayer`는 `gameIndex`의 파생 상태로서, `gameIndex`를 2로 나눴을때 0이면 플레이어1, 0이아니면 플레이어2가 된다
+- 리액트의 불변성원칙으로 `nextSquares`라는 변수에 `useState`로 초기값을 설정했던 `squares`를 전개한 배열에 담고
+  - `nextSquares[index]`는 `map`으로 클릭한 `index`에 맞춰서 `nextPlayer`가 동적으로 변한다
+  - 동적으로 변한 `nextPlayer` 변수를 `setSquares`에 담아 `squares`를 업데이트하고
+  - 최종적으로 `gameIndex`도 +1 한다
+
+```tsx
+const INITAL_SQUARES = Array(9).fill(null);
+const [squares, setSquares] = useState(INITAL_SQUARES);
+
+/* Square 컴포넌트에 인덱스값을 전달하는 함수 */
+const PLAYER1 = "🧡";
+const PLAYER2 = "💚";
+const [gameIndex, setGameIndex] = useState(0);
+const nextPlayer = gameIndex % 2 === 0 ? PLAYER1 : PLAYER2;
+const handlePlay = (index: number) => () => {
+  const nextSquares = [...squares];
+  nextSquares[index] = nextPlayer;
+  setSquares(nextSquares);
+  setGameIndex(gameIndex + 1);
+};
+```
+
+### Square 컴포넌트의 비활성 상태 설정
+
+**children을 사용해서 isPlayed라는 변수를 설정**
+
+- `handlePlay` 함수로 인해 `null`로 비어있던 `children`이 ➡️ 플레이어 1이나 플레이어 2가 담기면서 `false`에서 `true`값이 됨
+- `children` 값이 존재하거나 비어있지않으면 `true`를 반환
+  - 존재하지않으면 `false`를 반환
+- `disabled` 속성에 `isPlayed`를 넣어 사용자가 클릭했을 시 버튼이 `disabled` 되게 구성
+
+```tsx
+function Square({children, onPlay}: ISquareProp) {
+  **const isPlayed = !!children;**
+
+  return (
+    <>
+      <button
+        type="button"
+        className="w-16 h-16 border-l border-t border-solid border-slate-700"
+        onClick={onPlay}
+        disabled={isPlayed}>
+        {children}
+      </button>
+    </>
+  );
+}
+```
+
+### 위너 체크 및 게임 오버
+
+**승리 조건 배열 설정**
+
+```tsx
+const winnerCondition = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
+```
+
+**checkWinner 함수로 승리 조건 로직 설정**
+
+```tsx
+const checkWinner = (squares: string[]) => {
+  for (const [x, y, z] of winnerCondition) {
+    const winnerPlayer = squares[x];
+    if (
+      winnerPlayer &&
+      winnerPlayer === squares[y] &&
+      winnerPlayer === squares[z]
+    ) {
+      return {
+        player: winnerPlayer,
+        condition: [x, y, z],
+      };
+    }
+  }
+
+  return null;
+};
+const winner = checkWinner(squares);
+console.log(winner);
+```
+
+**승리조건이 맞을때, winner 변수가 값이 채워진다**
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/272b012a-e87d-473c-b817-b18213680590/8c83494d-949b-4a3c-8614-2731baf5527f/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/272b012a-e87d-473c-b817-b18213680590/2e534bb8-74af-495e-acbc-fd90484193a2/Untitled.png)
+
+**게임이 종료됬을때 alert창 띄우기**
+
+- 변수로 만든 **`winner`**로 조건처리한다
+
+```tsx
+const handlePlay = (index: number) => () => {
+    if (**winner**) return alert("GAME OVER!!");
+    const nextSquares = [...squares];
+    nextSquares[index] = nextPlayer;
+    setSquares(nextSquares);
+    setGameIndex(gameIndex + 1);
+  };
+```
+
+**현재까지 구현한 로직**
+
+```tsx
+import {useState} from "react";
+import Square from "./Square";
+
+function Board() {
+  const INITAL_SQUARES = Array(9).fill(null);
+  const [squares, setSquares] = useState(INITAL_SQUARES);
+
+  /* Square 컴포넌트에 인덱스값을 전달하는 함수 */
+  const PLAYER1 = "🧡";
+  const PLAYER2 = "💚";
+  const [gameIndex, setGameIndex] = useState(0);
+  const nextPlayer = gameIndex % 2 === 0 ? PLAYER1 : PLAYER2;
+  const handlePlay = (index: number) => () => {
+    if (winner) return alert("GAME OVER!!");
+    const nextSquares = [...squares];
+    nextSquares[index] = nextPlayer;
+    setSquares(nextSquares);
+    setGameIndex(gameIndex + 1);
+  };
+
+  /* 승리자 체크 배열 및 함수로직 */
+  const winnerCondition = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  const checkWinner = (squares: string[]) => {
+    for (const [x, y, z] of winnerCondition) {
+      const winnerPlayer = squares[x];
+      if (
+        winnerPlayer &&
+        winnerPlayer === squares[y] &&
+        winnerPlayer === squares[z]
+      ) {
+        return {
+          player: winnerPlayer,
+          condition: [x, y, z],
+        };
+      }
+    }
+
+    return null;
+  };
+  const winner = checkWinner(squares);
+  console.log(winner);
+
+  return (
+    <>
+      <div className="grid grid-rows-3 grid-cols-3 border-t-2 border-2 border-r-[3px] border-l-2 border-b-[3px] border-slate-700">
+        {squares.map((square, index) => {
+          return (
+            <Square key={index} onPlay={handlePlay(index)}>
+              {square}
+            </Square>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
+export default Board;
+```
+
+### 위너의 승리조건 스타일링
+
+**winnerClassName 변수를 빈 문자열로 설정**
+
+- 설정 후 `winner` 값이 존재할 경우, 즉 `winner`가 생길경우
+  - `winner.condition` 배열을 구조분해할당해 `[x,y,z]`로 나타내고
+  - 해당 구조분해할당한 원소들을 index값과 조건문에서 비교
+  - 비교해서 `true`가 될때 즉 `winner`일때 `winnerClassName`을 `bg-yellow-100`으로 설정
+
+```tsx
+function Board() {
+  const INITAL_SQUARES = Array(9).fill(null);
+  const [squares, setSquares] = useState(INITAL_SQUARES);
+
+  /* Square 컴포넌트에 인덱스값을 전달하는 함수 */
+  const PLAYER1 = "🧡";
+  const PLAYER2 = "💚";
+  const [gameIndex, setGameIndex] = useState(0);
+  const nextPlayer = gameIndex % 2 === 0 ? PLAYER1 : PLAYER2;
+  const handlePlay = (index: number) => () => {
+    if (winner) return alert("GAME OVER!!");
+    const nextSquares = [...squares];
+    nextSquares[index] = nextPlayer;
+    setSquares(nextSquares);
+    setGameIndex(gameIndex + 1);
+  };
+
+  /* 승리자 체크 배열 및 함수로직 */
+  const winnerCondition = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  const checkWinner = (squares: string[]) => {
+    for (const [x, y, z] of winnerCondition) {
+      const winnerPlayer = squares[x];
+      if (
+        winnerPlayer &&
+        winnerPlayer === squares[y] &&
+        winnerPlayer === squares[z]
+      ) {
+        return {
+          player: winnerPlayer,
+          condition: [x, y, z],
+        };
+      }
+    }
+
+    return null;
+  };
+  const winner = checkWinner(squares);
+
+  return (
+    <>
+      <div className="grid grid-rows-3 grid-cols-3 border-t-2 border-2 border-r-[3px] border-l-2 border-b-[3px] border-slate-700">
+        {squares.map((square, index) => {
+          **let winnerClassName = "";
+          if (winner) {
+            const [x, y, z] = winner.condition;
+            if (index === x || index === y || index === z) {
+              winnerClassName = "bg-yellow-100";
+            }
+          }**
+          return (
+            <Square
+              **className={winnerClassName}**
+              key={index}
+              onPlay={handlePlay(index)}>
+              {square}
+            </Square>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+```
+
+**winnerClassName을 Square 컴포넌트에 props로 전달후 기존 className과 합친다**
+
+```tsx
+interface ISquareProp {
+  children: React.ReactNode;
+  className: string;
+  onPlay: (index: number) => void;
+}
+
+function Square({children, **className**, onPlay}: ISquareProp) {
+  const isPlayed = !!children;
+  **const defaultClassName =
+    "w-16 h-16 border-l border-t border-solid border-slate-700 disabled:cursor-not-allowed";**
+
+  return (
+    <>
+      <button
+        type="button"
+        **className={`${defaultClassName} ${className}`.trim()}**
+        onClick={onPlay}
+        disabled={isPlayed}>
+        {children}
+      </button>
+    </>
+  );
+}
+
+export default Square;
+```
+
+### 게임 상수 및 함수 분리관리
+
+**상수들은 분리해 constants 폴더에서관리**
+
+```tsx
+**📝 constants/constant.ts**
+
+export const PLAYER1 = "🧡";
+export const PLAYER2 = "💚";
+
+export const INITAL_SQUARES = Array(9).fill(null);
+
+export const winnerCondition = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
+
+export const checkWinner = (squares: string[]) => {
+  for (const [x, y, z] of winnerCondition) {
+    const winnerPlayer = squares[x];
+    if (
+      winnerPlayer &&
+      winnerPlayer === squares[y] &&
+      winnerPlayer === squares[z]
+    ) {
+      return {
+        player: winnerPlayer,
+        condition: [x, y, z],
+      };
+    }
+  }
+
+  return null;
+};
+```
+
+### 상태 끌어올리기
+
+**현재 squaers 상태가 Board 내에서만 공유되고 있어서 다음플레이어가 누군지 알 수 없음**
+
+- 상태를 최상위로 끌어올리기 필요
+
+![*상태를 최상위인 Game 컴포넌트로 끌어올려야 Status에서도 공유할 수 있음*](https://prod-files-secure.s3.us-west-2.amazonaws.com/272b012a-e87d-473c-b817-b18213680590/5ebc153d-499e-44a9-8d02-4f310fb4f592/Untitled.png)
+
+_상태를 최상위인 Game 컴포넌트로 끌어올려야 Status에서도 공유할 수 있음_
+
+**상태관련 로직들을 짤라내 Game 컴포넌트에 이식**
+
+- 이후 props로 전달
+
+```tsx
+import {useState} from "react";
+import {
+  INITAL_SQUARES,
+  PLAYER1,
+  PLAYER2,
+  checkWinner,
+} from "../../constants/constant";
+import Board from "../Board/Board";
+import History from "./History";
+import Status from "./Status";
+
+function Game() {
+  **const [squares, setSquares] = useState(INITAL_SQUARES);
+
+  /* Square 컴포넌트에 인덱스값을 전달하는 함수 */
+  const [gameIndex, setGameIndex] = useState(0);
+  const nextPlayer = gameIndex % 2 === 0 ? PLAYER1 : PLAYER2;
+  const handlePlay = (index: number) => () => {
+    if (winner) return alert("GAME OVER!!");
+    const nextSquares = [...squares];
+    nextSquares[index] = nextPlayer;
+    setSquares(nextSquares);
+    setGameIndex(gameIndex + 1);
+  };
+
+  /* 승리자 체크 배열 및 함수로직 */
+  const winner = checkWinner(squares);**
+
+  return (
+    <>
+      <section className="grid grid-rows-[24px_1fr] grid-cols-2 gap-2">
+        <Status />
+        <Board **squares={squares} handlePlay={handlePlay} winner={winner}** />
+        <History />
+      </section>
+    </>
+  );
+}
+
+export default Game;
+```
+
+**Board 컴포넌트에서props를 받은 후 인터페이스 설정**
+
+```tsx
+import Square from "./Square";
+
+**interface IBoardProp {
+  squares: string[];
+  handlePlay: (index: number) => void;
+  winner: {
+    condition: number[];
+    player: string;
+  } | null;
+}**
+
+function Board(**{squares, handlePlay, winner}: IBoardProp**) {
+  return (
+    <>
+      <div className="grid grid-rows-3 grid-cols-3 border-t-2 border-2 border-r-[3px] border-l-2 border-b-[3px] border-slate-700">
+        {squares.map((square, index) => {
+          let winnerClassName = "";
+          if (winner) {
+            const [x, y, z] = winner.condition;
+            if (index === x || index === y || index === z) {
+              winnerClassName = "bg-yellow-100";
+            }
+          }
+          return (
+            <Square
+              className={winnerClassName}
+              key={index}
+              onPlay={handlePlay(index)}>
+              {square}
+            </Square>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+
+export default Board;
+```
+
+### Status에 상태 전달
+
+**Status 컴포넌트에 nextPlayer 상태를 props로 전달한다**
+
+- 인터페이스 추가 설정
+
+```tsx
+function Game() {
+  const [squares, setSquares] = useState(INITAL_SQUARES);
+
+  /* Square 컴포넌트에 인덱스값을 전달하는 함수 */
+  const [gameIndex, setGameIndex] = useState(0);
+  **const nextPlayer = gameIndex % 2 === 0 ? PLAYER1 : PLAYER2;**
+  const handlePlay = (index: number) => () => {
+    if (winner) return alert("GAME OVER!!");
+    const nextSquares = [...squares];
+    nextSquares[index] = nextPlayer;
+    setSquares(nextSquares);
+    setGameIndex(gameIndex + 1);
+  };
+
+  /* 승리자 체크 배열 및 함수로직 */
+  const winner = checkWinner(squares);
+
+  return (
+    <>
+      <section className="grid grid-rows-[24px_1fr] grid-cols-2 gap-2">
+        <Status **nextPlayer={nextPlayer}** />
+        <Board squares={squares} handlePlay={handlePlay} winner={winner} />
+        <History />
+      </section>
+    </>
+  );
+}
+```
+
+**Status.tsx**
+
+```tsx
+**interface IStatusProp {
+  nextPlayer: string;
+}**
+
+function Status**({nextPlayer}: IStatusProp**) {
+  return (
+    <>
+      <h2 className="col-span-2 text-sm">다음 플레이어 : **{nextPlayer}**</h2>
+    </>
+  );
+}
+
+export default Status;
+```
+
+<aside>
+💡 **Status 컴포넌트에서 게임 상태를 감지해 상태메세지를 출력**
+
+</aside>
+
+**Game 컴포넌트에서 winner 프롭을 전달**
+
+- `StatusMessage`라는 변수를 설정해 삼항연산자로 조건처리
+
+```tsx
+interface IStatusProp {
+  nextPlayer: string;
+  **winner: {
+    condition: number[];
+    player: string;
+  } | null;**
+}
+
+function Status({nextPlayer, **winner**}: **IStatusProp**) {
+  **let statusMessage = "";
+
+  winner
+    ? (statusMessage = `위너! ${winner.player} 🥳`)
+    : `다음 플레이어 ${nextPlayer}`;**
+
+  return (
+    <>
+      <h2 className="col-span-2 text-sm">{**statusMessage**}</h2>
+    </>
+  );
+}
+
+export default Status;
+```
+
+**게임이 무승부인지 아닌지를 판별할 상태 필요**
+
+- 무승부상태를 `props`로 `Status`컴포넌트에 전달
+
+```tsx
+function Game() {
+  const [squares, setSquares] = useState(INITAL_SQUARES);
+
+  /* Square 컴포넌트에 인덱스값을 전달하는 함수 */
+  const [gameIndex, setGameIndex] = useState(0);
+  const nextPlayer = gameIndex % 2 === 0 ? PLAYER1 : PLAYER2;
+  const handlePlay = (index: number) => () => {
+    if (winner) return alert("GAME OVER!!");
+    const nextSquares = [...squares];
+    nextSquares[index] = nextPlayer;
+    setSquares(nextSquares);
+    setGameIndex(gameIndex + 1);
+  };
+
+  /* 승리자 체크 배열 및 함수로직 */
+  const winner = checkWinner(squares);
+  /* 무승부 상태 */
+  **const isDraw = !winner && squares.every(Boolean);**
+
+  return (
+    <>
+      <section className="grid grid-rows-[24px_1fr] grid-cols-2 gap-2">
+        <Status nextPlayer={nextPlayer} winner={winner} **isDraw={isDraw}** />
+        <Board squares={squares} handlePlay={handlePlay} winner={winner} />
+        <History />
+      </section>
+    </>
+  );
+}
+```
+
+```tsx
+**📝 Status.tsx**
+
+interface IStatusProp {
+  nextPlayer: string;
+  winner: {
+    condition: number[];
+    player: string;
+  } | null;
+  **isDraw: boolean;**
+}
+
+function Status({nextPlayer, winner, **isDraw**}: IStatusProp) {
+  let statusMessage = "";
+  winner
+    ? (statusMessage = `위너! ${winner.player} 🥳`)
+    : (statusMessage = `다음 플레이어 ${nextPlayer}`);
+
+  **if (isDraw) {
+    statusMessage = "무승부";
+  }**
+
+  return (
+    <>
+      <h2 className="col-span-2 text-sm">{statusMessage}</h2>
+    </>
+  );
+}
+
+export default Status;
+```
+
+## 게임 히스토리
+
+**History 컴포넌트에서 게임의 진행내역을 UI에 출력**

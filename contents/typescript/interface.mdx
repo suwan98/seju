@@ -1,0 +1,120 @@
+---
+title: 인터페이스
+date: 2023-12-12
+category: TypeScript
+image: /assets/post/my-blog-services/thumbnail.png
+---
+
+# 인터페이스
+
+**객체 타입에 이름을 붙이는 또 하나의 방법 존재**
+
+- 인터페이스 선언을 사용
+- 타입 별칭과 마찬가지로 파스칼케이스가 컨벤션
+
+```tsx
+**interface Person {
+    name : string ,
+    age : number,
+    address : string,
+}**
+
+const person:Person = {
+    name : 'seju',
+    age : 25,
+    address : 'seoul'
+}
+```
+
+### 인터페이스 - 배열과 함수에서의 타이핑
+
+**인터페이스는 객체에 사용 가능하므로 배열과 함수에서도 사용가능하다**
+
+```tsx
+/* 인터페이스 함수*/
+interface Fuc {
+    (x:number, y:number) : number;
+}
+const add:Fuc = (x,y) => x + y
+
+/* 인터페이스 배열 */
+interface Arr {
+    length : number;
+    **[key:number] : string**
+}
+
+const arr:Arr = ["3","5","6"]
+```
+
+**[key:number] : string?**
+
+- 인덱스 시그니처
+- 해당 객체에 length를 제외한 속성의 키가 전부 `number`라는 의미
+
+### 인터페이스 병합
+
+**타입 별칭과는 다른 인터페이스의 차별점**
+
+- 인터페이스끼리는 서로 합칠 수 있다
+- 같은이름으로 인터페이스를 선언하면 하나의 인터페이스로 합쳐진다
+  - 이를 선언 병합이라고 정의
+  - 이런 기능을 만든 이유는?
+    - 나중에 다른 사람이 인터페이스를 확장할 수 있도록 하기 위함
+
+```tsx
+**interface Merge {
+    one : string;
+}
+
+interface Merge {
+    two : string;
+}**
+
+const example:**Merge** = {
+ one : '1',
+ two : '2'
+}
+```
+
+**인터페이스 간 속성이 겹치는데 타입이 다를 경우는 에러가 발생함!**
+
+- 속성이 같은 경우 타입도 같아야 한다
+
+```tsx
+interface Merge {
+    one : string;
+}
+
+interface Merge {
+// 기존 one이 string타입으로 표기되었는데 number로 하려고하면 Error
+    **one : number;**
+}
+
+const example:Merge = {
+ one : '1',
+}
+```
+
+### 네임 스페이스
+
+**인터페이스 병합엔 큰 단점이 존재**
+
+- 남이 만든 인터페이스와 의도치않게 병합될 수 있음(라이브러리 사용시..)
+  - 이럴때를 대비해 네임스페이스 존재
+- 네임스페이스 내부타입 참조하려면 네임스페이스내에서 인터페이스를 `export`해야된다
+- 참조시 점표기법으로 접근 (대괄호 표기법으론 접근 ❌)
+
+```tsx
+**namespace Ex {
+    export interface Innter {
+        test : string;
+    }
+    export type test2 = number
+}**
+
+const ex1 : Ex.Innter = {
+    test : 'hi'
+}
+
+const ex2 : Ex.test2 = 1;
+```
