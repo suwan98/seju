@@ -5,14 +5,22 @@
 
 ## 😆 Nextjs를 통한 나만의 기술 블로그 만들기
 
+### 🖼️ 배포주소
+
+[Seju.devlog](seju-devlog.vercel.app)
+
+<br />
+
 ### 왜 Nextjs인가?
+
+- ~~남들도 다 `Nextjs`로 만들어서?..~~
 
 <br />
 <br />
 
 ## 📆 개발기간
 
-- 2023-12-04(월) ~ 진행중
+- 2023-12-04(월) ~ 2023~12-12(화)
 
 <br />
 <br />
@@ -23,6 +31,7 @@
 - `Nextjs`
 - `tailwindcss`
 - `framer-motion`
+- `content-layer`
 
 <br />
 <br />
@@ -39,9 +48,10 @@
 - [x] GlassMorphism 구현
 - [x] 타이핑 애니메이션
 - [x] Giscus 추가하기
+- [x] 반응형 레이아웃
 - [ ] 블로그 View Count
 - [ ] Google Analytics 연동
-- [x] 반응형 레이아웃
 - [ ] 페이지네이션
+- [ ] 도메인 구매
 
 ## 🏊‍♂️ 트러블슈팅

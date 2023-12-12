@@ -35,7 +35,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="ko" suppressHydrationWarning={true}>
       <head />
-      <body className="flex flex-col bg-secondaryColor antialiased transition-colors delay-75 dark:bg-[#161617] dark:bg-opacity-80 relative min-h-screen w-full">
+      <body className="flex flex-col bg-secondaryColor antialiased transition-colors delay-75 dark:bg-neutral-800  relative min-h-screen w-full">
         <ThemeProviders>
           <Navbar />
           <main className="mx-auto flex items-center justify-center my-auto">
