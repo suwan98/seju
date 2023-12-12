@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: `/assets/image/og_image.png`,
-        width: 800,
+        width: 600,
         height: 600,
       },
     ],

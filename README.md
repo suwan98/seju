@@ -51,6 +51,7 @@
 - [x] 반응형 레이아웃
 - [ ] 블로그 View Count
 - [ ] Google Analytics 연동
+- [ ] site-map / robot.txt 작성
 - [ ] 페이지네이션
 - [ ] 도메인 구매
 

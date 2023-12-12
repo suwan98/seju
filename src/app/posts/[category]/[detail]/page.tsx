@@ -29,7 +29,7 @@ export const generateMetadata = ({params}: PostDetailProps) => {
       images: [
         {
           url: `${METADATA.meta.url}/assets/image/og_image.png`,
-          width: 800,
+          width: 600,
           height: 600,
         },
       ],
