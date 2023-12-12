@@ -14,14 +14,14 @@ export const metadata: Metadata = {
   keywords: "프론트엔드 기술 블로그",
   openGraph: {
     title: METADATA.headerTitle,
-    description: METADATA.meta.title,
+    description: METADATA.meta.description,
     url: METADATA.meta.url,
     siteName: "Next.js",
     images: [
       {
         url: "/assets/image/og_image.jpg",
-        width: 968,
-        height: 370,
+        width: 800,
+        height: 600,
       },
     ],
     locale: "ko_KR",
