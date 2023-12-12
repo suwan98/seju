@@ -33,7 +33,7 @@ function Navbar() {
           isScrolled ? scrolledStyle : null
         }`}>
         <div
-          className="flex items-center justify-between text-primaryColor dark:text-secondaryColor
+          className="flex items-center justify-between text-secondaryColor dark:text-secondaryColor
           ">
           <h1 className="font-extrabold text-3xl block p-4 font-jalnan dark:text-primaryColor">
             <Link href="/">

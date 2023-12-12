@@ -1,3 +1,5 @@
+import PageIntroduce from "@/components/Home/PageIntroduce";
+import CursorBlinker from "@/components/common/CursorBlinker";
 import Image from "next/image";
 
 export default function Home() {
@@ -28,21 +30,10 @@ export default function Home() {
           </h2>
 
           <hr className="pb-8" />
-          <article className="mobile:text-lg mobile:font-medium">
-            <p>
-              트러블슈팅, 사이드프로젝트 과정, 학습한 내용들에 대한 고군분투가
-              담겨있는 블로그입니다.
-            </p>
-            <p>기록하고 학습하는것을 즐기는,</p>
-            <p>프론트엔드 개발자를 지향(志向) 하고 있습니다</p>
-            <p>
-              좋은 코드가 결국 최종적으로 UX까지도 영향을 끼친다고 생각합니다.
-            </p>
-            <p>
-              따라서 가치있는 코드를 만들어 유저경험을 가장 우선시 하는 개발자가
-              되고 싶습니다
-            </p>
-          </article>
+          <article className="mobile:text-lg mobile:font-medium flex items-center min-w-[45rem] text-lg">
+            <PageIntroduce />
+            <CursorBlinker />
+        </article>
         </div>
       </section>
     </>

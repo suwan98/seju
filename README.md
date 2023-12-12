@@ -37,6 +37,7 @@
 - [x] Intersection Observer API를 통한 목차 기능 개발
 - [x] SEO 최적화
 - [x] GlassMorphism 구현
+- [ ] Framer-motion을 통한 타이핑 애니메이션
 - [ ] Giscus 추가하기
 - [ ] 블로그 View Count
 - [x] 반응형 레이아웃
