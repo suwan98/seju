@@ -6,12 +6,14 @@ import Footer from "../components/Footer";
 import METADATA from "@/constants/METADATA";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(METADATA.meta.url),
   title: "Seju Devlog",
   description: "좌충우돌 새싹 개발자 성장기🌱",
   icons: {
     icon: "/assets/icon/favicon.ico",
   },
   keywords: "프론트엔드 기술 블로그",
+  applicationName: "Seju.blog",
   openGraph: {
     title: METADATA.headerTitle,
     description: METADATA.meta.description,
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: `/assets/image/og_image.jpg`,
-        width: 800,
+        width: 600,
         height: 600,
       },
     ],
@@ -45,3 +47,15 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     </html>
   );
 }
+
+// {
+//     description: Minsang's Tech Blog
+//     image: https://minsang-blog.vercel.app/blogSc.png
+//     image:height: 370
+//     image:width: 968
+//     locale: ko_KR
+//     site_name: Next.js
+//     title: Minsang.dev
+//     type: website
+//     url: https://minsang-blog.vercel.app/
+//     }
