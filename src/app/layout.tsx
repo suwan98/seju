@@ -13,10 +13,19 @@ export const metadata: Metadata = {
   },
   keywords: "프론트엔드 기술 블로그",
   openGraph: {
-    images: `${METADATA.meta.url}/assets/image/op_image.jpg`,
+    title: METADATA.headerTitle,
+    description: METADATA.meta.title,
     url: METADATA.meta.url,
-    title: `Seju Devlog`,
-    description: `좌충우돌 새싹 개발자 성장기🌱`,
+    siteName: "Next.js",
+    images: [
+      {
+        url: "/assets/image/og_image.png",
+        width: 968,
+        height: 370,
+      },
+    ],
+    locale: "ko_KR",
+    type: "website",
   },
 };
 
