@@ -7,7 +7,7 @@
 
 ### 🖼️ 배포주소
 
-[Seju.devlog](seju-devlog.vercel.app)
+[배포 사이트 확인하기!](https://www.seju.blog)
 
 <br />
 
@@ -39,11 +39,11 @@
 ## 🐫 기능
 
 - [x] Static Site Generation
-- [x] Contentlayer 라이브러리를 통한 .mdx 파일 렌더링
+- [x] Contentlayer 라이브러리를 통한 `.mdx` 파일 렌더링
 - [x] 게시글 내 코드 블록 하이라이팅
-- [x] MDX 코드 내부 스타일링 초기화(@tailwindcss/typography)
+- [x] `MDX` 코드 내부 스타일링 초기화(@tailwindcss/typography)
 - [ ] 게시글 썸네일
-- [x] Intersection Observer API를 통한 목차 기능 개발
+- [x] `Intersection Observer API`를 통한 목차 기능 개발
 - [x] SEO 최적화
 - [x] GlassMorphism 구현
 - [x] 타이핑 애니메이션

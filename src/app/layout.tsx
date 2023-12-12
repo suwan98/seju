@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     siteName: "Next.js",
     images: [
       {
-        url: `/assets/image/og_image.jpg`,
-        width: 600,
+        url: `/assets/image/og_image.png`,
+        width: 800,
         height: 600,
       },
     ],

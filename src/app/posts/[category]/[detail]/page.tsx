@@ -28,8 +28,8 @@ export const generateMetadata = ({params}: PostDetailProps) => {
       description: `이 페이지는 ${category} 카테고리의 ${detail}에 대한 상세 정보를 제공합니다. ${METADATA.meta.description}`,
       images: [
         {
-          url: `${METADATA.meta.url}/assets/image/og_image.jpg`,
-          width: 600,
+          url: `${METADATA.meta.url}/assets/image/og_image.png`,
+          width: 800,
           height: 600,
         },
       ],
