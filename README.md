@@ -4,13 +4,19 @@
 <br />
 
 **웹 애플리케이션 이미지**
-<img src="/public/assets/README/README1.png" style="width:400px height:400px align:center" >
+
+<p align="center">
+    <img src="/public/assets/README/README1.png" style=width = "400px" height = "400px">
+</p>
 
 <br />
 <br />
 
 **모바일 반응형 이미지**
-<img src="/public/assets/README/README2.png" style="width:400px height:400px align:center">
+
+<p align="center">
+    <img src="/public/assets/README/README2.png" style=width = "500px" height = "400px">
+</p>
 
 ### 🖼️ 배포주소
 
