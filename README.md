@@ -1,15 +1,16 @@
-# Seju 기술블로그
+# 😆 Nextjs를 통한 기술 블로그 만들기
 
 <br />
 <br />
 
-## 😆 Nextjs를 통한 나만의 기술 블로그 만들기
-
-![Alt text](/public/assets/README/README1.png)
+**웹 애플리케이션 이미지**
+<img src="/public/assets/README/README1.png" style="width:400px height:400px align:center" >
 
 <br />
+<br />
 
-![Alt text](/public/assets/README/README2.png)
+**모바일 반응형 이미지**
+<img src="/public/assets/README/README2.png" style="width:400px height:400px align:center">
 
 ### 🖼️ 배포주소
 
