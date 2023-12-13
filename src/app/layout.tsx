@@ -7,7 +7,7 @@ import METADATA from "@/constants/METADATA";
 
 export const metadata: Metadata = {
   metadataBase: new URL(METADATA.meta.url),
-  title: "Seju Devlog",
+  title: "seju.blog",
   description: "좌충우돌 새싹 개발자 성장기🌱",
   icons: {
     icon: "/assets/icon/favicon.ico",
