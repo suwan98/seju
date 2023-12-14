@@ -26,9 +26,9 @@ function Giscus() {
   }, [giscusTheme]);
 
   return (
-    <footer id="giscus-comment" className="pt-10">
+    <div className="pt-10 min-h-[30rem]">
       <section ref={giscusRef} />
-    </footer>
+    </div>
   );
 }
 

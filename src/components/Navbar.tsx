@@ -24,7 +24,7 @@ function Navbar() {
   }, []);
 
   const scrolledStyle =
-    "bg-opacity-80 text-primaryColor backdrop-blur-2xl z-10 dark:bg-primaryColor dark:bg-opacity-70 dark:bg-blend-overlay dark:backdrop-blur-xl";
+    "bg-opacity-80 text-primaryColor backdrop-blur-2xl z-10 dark:bg-primaryColor dark:bg-opacity-70 dark:bg-blend-overlay dark:backdrop-blur-xl dark:text-gray-600";
 
   return (
     <>
