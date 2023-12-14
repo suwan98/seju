@@ -2,7 +2,7 @@
 
 import {NAV_ITEMS} from "@/constants/NAV_LINKS";
 import Link from "next/link";
-import DarkModeButton from "./DarkModeButton";
+import DarkModeButton from "../DarkModeButton";
 import {useEffect, useState} from "react";
 
 function Navbar() {

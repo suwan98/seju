@@ -1,5 +1,5 @@
-import Github from "./common/icon/Github";
-import Gmail from "./common/icon/Gmail";
+import Github from "../common/icon/Github";
+import Gmail from "../common/icon/Gmail";
 
 function Footer() {
   return (
