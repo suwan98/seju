@@ -24,7 +24,7 @@ function Navbar() {
   }, []);
 
   const scrolledStyle =
-    "bg-opacity-20 bg-secondaryColor text-black dark:bg-primaryColor dark:bg-opacity-20 dark:bg-blend-overlay";
+    "bg-opacity-40 bg-secondaryColor text-black dark:bg-primaryColor dark:bg-opacity-20 dark:bg-blend-overlay";
 
   return (
     <>
