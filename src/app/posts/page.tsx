@@ -10,8 +10,8 @@ function Posts() {
 
   return (
     <>
-      <div className="mx-auto py-8 mobile:p-4">
-        <h1 className="mb-12 text-center text-3xl font-black">
+      <div className="mx-auto py-12">
+        <h1 className="mb-12 text-center text-3xl font-black mobile:text-2xl">
           전체 게시글 보기
         </h1>
         <PostList posts={posts} />
