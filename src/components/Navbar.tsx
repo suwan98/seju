@@ -24,12 +24,12 @@ function Navbar() {
   }, []);
 
   const scrolledStyle =
-    "bg-opacity-40 bg-secondaryColor text-black dark:bg-primaryColor dark:bg-opacity-20 dark:bg-blend-overlay";
+    "bg-opacity-80 text-primaryColor backdrop-blur-2xl z-10 dark:bg-primaryColor dark:bg-opacity-70 dark:bg-blend-overlay dark:backdrop-blur-xl";
 
   return (
     <>
       <nav
-        className={`bg-blue-400 text-secondaryColor py-8 px-12 bottom-shadow dark:bg-secondaryColor sticky top-0 dark:text-black mobile:p-0 min-w-full ${
+        className={`bg-blue-400 text-secondaryColor py-8 px-12 bottom-shadow dark:bg-secondaryColor sticky top-0 dark:text-black mobile:p-0  min-w-full ${
           isScrolled ? scrolledStyle : null
         }`}>
         <div
