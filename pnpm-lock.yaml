@@ -23,6 +23,12 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  react-spinners:
+    specifier: ^0.13.8
+    version: 0.13.8(react-dom@18.2.0)(react@18.2.0)
+  rome:
+    specifier: ^0.10.1
+    version: 0.10.1
 
 devDependencies:
   '@tailwindcss/typography':
@@ -1049,6 +1055,54 @@ packages:
   /@protobufjs/utf8@1.1.0:
     resolution: {integrity: sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==}
     dev: false
+
+  /@rometools/cli-darwin-arm64@0.10.1:
+    resolution: {integrity: sha512-+4STpdjqDf+mVJVKcpHy0y1xCNLir1Na0mcepv4XnRq1jKHda0kNh58bXq7JJwSt7wa3FxKwJXuIxGLqfYo9dg==}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@rometools/cli-darwin-x64@0.10.1:
+    resolution: {integrity: sha512-UcjDKCor8MgadLEcdydIZ8sRQuexvHSEnae/gx65BoDRXIvKHlfxr40ylVbjn7us0kFZpIlf8A6ac1doWww3pQ==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@rometools/cli-linux-arm64@0.10.1:
+    resolution: {integrity: sha512-1bfxul/dW22PQRrLiJAnUaqCwjZGnSztEOeIPGfRmVde/y7cFf6h+4dKEEDhK+oBJMLAWnp/BCH5HHqhLhbG8w==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@rometools/cli-linux-x64@0.10.1:
+    resolution: {integrity: sha512-7+u5jAmAdWvBpG/lVKFgB6xeM9ifabRY6eptqqJkvDvoqeDv2Ce9igUmEY6lq/4jvBgRV20QGvFPO0Y3gdFtCw==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@rometools/cli-win32-arm64@0.10.1:
+    resolution: {integrity: sha512-VnTK2GvT9BYwzqoEezhqXwV66Fae4Xh+SYODKW2txLOLOws2QNT5GtnmThrtXIm7VFjWEu8OhIL+NrRDmwdDgA==}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@rometools/cli-win32-x64@0.10.1:
+    resolution: {integrity: sha512-KOYG56L2i7a4h990GUDg9dh8AxAKrI2x3ZAvdimMbfNJwdexOSJuCELduwE2ChvWt3lhvSRYcP4/BazrhA8Qng==}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: false
+    optional: true
 
   /@rushstack/eslint-patch@1.6.0:
     resolution: {integrity: sha512-2/U3GXA6YiPYQDLGwtGlnNgKYBSwCFIHf8Y9LUY5VATHdtbLlU0Y1R3QoBnT0aB4qv/BEiVVsj7LJXoQCgJ2vA==}
@@ -4363,6 +4417,16 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
+  /react-spinners@0.13.8(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-3e+k56lUkPj0vb5NDXPVFAOkPC//XyhKPJjvcGjyMNPWsBKpplfeyialP74G7H7+It7KzhtET+MvGqbKgAqpZA==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
     engines: {node: '>=0.10.0'}
@@ -4595,6 +4659,21 @@ packages:
     dependencies:
       glob: 7.2.3
     dev: true
+
+  /rome@0.10.1:
+    resolution: {integrity: sha512-0XkGn7Z4DVEAtETRS1672VqYs0C3/hajPF64eVt5P3aiSy47KeyLFvIP5xrRlSD+ixW4Z7+jtgrNFeGmCo3XQQ==}
+    engines: {node: '>=14.*'}
+    deprecated: Bad build
+    hasBin: true
+    requiresBuild: true
+    optionalDependencies:
+      '@rometools/cli-darwin-arm64': 0.10.1
+      '@rometools/cli-darwin-x64': 0.10.1
+      '@rometools/cli-linux-arm64': 0.10.1
+      '@rometools/cli-linux-x64': 0.10.1
+      '@rometools/cli-win32-arm64': 0.10.1
+      '@rometools/cli-win32-x64': 0.10.1
+    dev: false
 
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
