@@ -12,6 +12,10 @@ function DarkModeButton() {
 
   useEffect(() => {
     setMounted(true);
+
+    return () => {
+      setMounted(false);
+    };
   }, []);
   return (
     <>

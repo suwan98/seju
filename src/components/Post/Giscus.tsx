@@ -23,12 +23,6 @@ function Giscus() {
     });
 
     giscusRef.current.appendChild(script);
-
-    return () => {
-      if (giscusRef.current) {
-        giscusRef.current.removeChild(script);
-      }
-    };
   }, [giscusTheme]);
 
   return (

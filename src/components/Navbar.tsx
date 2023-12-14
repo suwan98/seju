@@ -41,11 +41,11 @@ function Navbar() {
               <span className="text-sm font-light pl-2 ">기술 블로그</span>
             </Link>
           </h1>
-          <ul className="flex items-center justify-center gap-4   text-opacity-65">
+          <ul className="flex items-center justify-center gap-4 text-opacity-65">
             {NAV_ITEMS.map(({name, href}) => (
               <li
                 key={name}
-                className="hover:scale-110 delay-75 ease-in-out transition-transform dark:text-primaryColor">
+                className="hover:scale-110 delay-75 ease-in-out transition-transform dark:text-primaryColor dark:font-medium">
                 <Link href={href}>{name}</Link>
               </li>
             ))}
