@@ -65,7 +65,7 @@
 - [x] 게시글 내 코드 블록 하이라이팅
 - [x] next-theme을 통한 다크모드/라이트모드 구현
 - [x] `MDX` 코드 내부 스타일링 초기화(@tailwindcss/typography)
-- [ ] 게시글 썸네일
+- [x] 게시글 썸네일
 - [x] `Intersection Observer API`를 통한 목차 기능 개발
 - [x] SEO 최적화
 - [x] GlassMorphism 구현

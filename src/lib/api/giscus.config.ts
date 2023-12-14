@@ -13,8 +13,8 @@ const giscusConfig = {
     lang: "ko",
     loading: "lazy",
     crossorigin: "anonymous",
+    async: "",
   },
-  async: true,
 };
 
 export default giscusConfig;
