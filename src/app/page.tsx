@@ -25,7 +25,7 @@ export default function Home() {
 
         <div className="pl-4">
           <h2 className="mt-2 text-3xl font-bold pb-8">
-            프론트엔드 개발자 꿈나무
+            프론트엔드 주니어 개발자
             <span className="text-blue-500 pl-2">고수완</span>입니다
           </h2>
 
