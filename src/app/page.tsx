@@ -24,13 +24,14 @@ export default function Home() {
         </a>
 
         <div className="pl-4">
-          <h2 className="mt-2 text-3xl font-bold pb-8">
+          <h2 className="mt-2 text-3xl font-bold pb-8 mobile:flex flex-col items-center justify-center">
             프론트엔드 주니어 개발자
-            <span className="text-blue-500 pl-2">고수완</span>입니다
+            <span className="text-blue-500 pl-2">고수완</span>
+            <span className="mobile:hidden">입니다</span>
           </h2>
 
           <hr />
-          <article className="mobile:text-lg mobile:font-medium flex items-center min-w-[45rem] text-lg min-h-[6rem] mobile:min-w-[6rem] mobile:text-center">
+          <article className="mobile:text-lg mobile:font-medium flex items-center min-w-[45rem] text-lg min-h-[6rem] mobile:min-w-[12rem] mobile:text-center">
             <PageIntroduce />
             <CursorBlinker />
           </article>

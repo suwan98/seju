@@ -18,7 +18,7 @@ function PostList({posts}: PostListProps) {
             post._raw.flattenedPath
           )}`}
           passHref>
-          <div className="mt-2 transition text-primaryColor bg-white  hover:text-blue-400 dark:hover:text-blue-400 flex justify-between items-center px-4 py-8 border rounded-lg my-8 bottom-shadow dark:bg-secondaryColor mobile:flex-col mobile:px-0 mobile:mx-12">
+          <div className="mt-2 transition text-primaryColor bg-white  hover:text-blue-400 dark:hover:text-blue-400 flex justify-between items-center px-4 py-8 border rounded-lg my-8 bottom-shadow dark:bg-secondaryColor mobile:flex-col mobile:px-0 mobile:mx-12 gap-8">
             <div className="flex flex-col order-1 mobile:order-2">
               <span className="font-bold pb-4 mobile:pt-4">{post.title}</span>
               <span className="font-extralight text-xs pb-3">
