@@ -3,24 +3,9 @@
 <br />
 <br />
 
-**웹 애플리케이션 이미지**
-
-<p align="center">
-    <img src="/public/assets/README/README1.png" style=width = "400px" height = "400px">
-</p>
-
-<br />
-<br />
-
-**모바일 반응형 이미지**
-
-<p align="center">
-    <img src="/public/assets/README/README2.png" style=width = "500px" height = "400px">
-</p>
-
 ### 🖼️ 배포주소
 
-[배포 사이트 확인하기!](https://www.seju.blog)
+## [seju.blog](https://www.seju.blog)
 
 <br />
 
@@ -72,10 +57,10 @@
 - [x] 타이핑 애니메이션
 - [x] Giscus 추가하기
 - [x] 반응형 레이아웃
+- [x] site-map / robot.txt 작성
+- [x] 도메인 구매
 - [ ] 블로그 View Count
 - [ ] Google Analytics 연동
-- [x] site-map / robot.txt 작성
 - [ ] 페이지네이션
-- [x] 도메인 구매
 
 ## 🏊‍♂️ 트러블슈팅

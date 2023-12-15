@@ -1,12 +1,9 @@
-import {allPosts} from "contentlayer/generated";
-import {compareDesc} from "date-fns";
 import PostList from "@/components/Post/PostList";
 import PostCategories from "@/components/Post/PostCategories";
+import getPosts from "@/lib/gegtPosts";
 
 function Posts() {
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date))
-  );
+  const posts = getPosts;
 
   return (
     <>
