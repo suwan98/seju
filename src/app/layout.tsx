@@ -4,6 +4,8 @@ import ThemeProviders from "@/components/ThemeProviders";
 import Footer from "@/components/layout/Footer";
 import METADATA from "@/constants/METADATA";
 import Navbar from "@/components/layout/Navbar";
+import {Suspense} from "react";
+import GoogleAnalytics from "@/components/common/GoogleAnalytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL(METADATA.meta.url),
@@ -36,13 +38,16 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="ko" suppressHydrationWarning={true}>
       <head />
       <body className="flex flex-col bg-secondaryColor dark:bg-neutral-800  relative min-h-screen w-full">
-        <ThemeProviders>
-          <Navbar />
-          <main className="mx-auto my-auto flex items-center justify-center">
-            {children}
-          </main>
-          <Footer />
-        </ThemeProviders>
+        <Suspense>
+          <ThemeProviders>
+            <Navbar />
+            <main className="mx-auto my-auto flex items-center justify-center">
+              {children}
+            </main>
+            <Footer />
+          </ThemeProviders>
+          <GoogleAnalytics />
+        </Suspense>
       </body>
     </html>
   );
