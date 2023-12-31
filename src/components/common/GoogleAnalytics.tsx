@@ -6,6 +6,7 @@ function GoogleAnalytics() {
   return (
     <>
       <Script
+        /* 구글 애널리틱스 */
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTM}`}
       />
       <Script id="google-analytics">
