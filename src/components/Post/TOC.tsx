@@ -7,8 +7,9 @@ import {Link} from "react-scroll";
 function TOC() {
   const [currentId, setCurrentId] = useState<string>("");
   const [headingElements, setHeadingElements] = useState<Element[]>([]);
+
   useEffect(() => {
-    const observer = getInterSectionObserver(setCurrentId);
+    const observer = getInterSectionObserver(setCurrentId, "100px 0px");
     const headingEls = Array.from(
       document.querySelectorAll("h1[id],h2[id],h3[id]")
     );
@@ -16,11 +17,13 @@ function TOC() {
     headingEls.map((header) => {
       observer.observe(header);
     });
-  }, []);
+  }, [currentId]);
 
   return (
     <>
-      <div className="fixed top-0  left-[calc(100%-28rem)] tablet:left-[calc(100%-20rem)] mt-[20rem] mobile:hidden ">
+      <div
+        className="fixed top-0 mr-8
+        left-[calc(100%-28rem)] tablet:left-[calc(100%-20rem)] mt-[20rem] mobile:hidden ">
         <ul className="flex flex-col items-end gap-2">
           {headingElements.map((heading) => {
             return (
@@ -32,7 +35,7 @@ function TOC() {
                   smooth={true}
                   duration={500}
                   className={`${
-                    heading.id === currentId ? "text-blue-400 font-bold" : null
+                    heading.id === currentId ? "text-blue-400 font-bold" : ""
                   }`}>
                   {heading.textContent}
                 </Link>

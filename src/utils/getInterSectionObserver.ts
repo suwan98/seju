@@ -1,7 +1,10 @@
 import {Dispatch, SetStateAction} from "react";
 import {debounce} from "lodash";
 
-function getInterSectionObserver(setState: Dispatch<SetStateAction<string>>) {
+function getInterSectionObserver(
+  setState: Dispatch<SetStateAction<string>>,
+  rootMargin: string = "0px"
+) {
   const observer = new IntersectionObserver(
     debounce((entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
@@ -9,7 +12,11 @@ function getInterSectionObserver(setState: Dispatch<SetStateAction<string>>) {
           setState(entry.target.id);
         }
       });
-    }, 300) // 300ms 딜레이
+    }, 150), // 150ms 딜레이,
+    {
+      rootMargin: rootMargin,
+      threshold: 1,
+    }
   );
 
   return observer;
